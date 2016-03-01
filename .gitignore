@@ -235,4 +235,4 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-Source/MoviesLibrarySystem/Web/connectionStrings.config/
+Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/connectionStrings.config
