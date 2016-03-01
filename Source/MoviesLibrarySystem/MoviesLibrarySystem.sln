@@ -3,8 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{C4CFE46D-65E7-4E9F-833E-AFE8D6DEED7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{3796B423-0304-487B-8932-0C363BE29E74}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A03C0F68-43F3-4994-BE7E-9160C0046B8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5CAD15AF-48AB-49AE-AC9C-FDB2F7DF62D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesLibrary.Web", "Web\MoviesLibrary.Web\MoviesLibrary.Web.csproj", "{12C5E68F-168B-4805-9788-BA51A3F541EE}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12C5E68F-168B-4805-9788-BA51A3F541EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C5E68F-168B-4805-9788-BA51A3F541EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C5E68F-168B-4805-9788-BA51A3F541EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C5E68F-168B-4805-9788-BA51A3F541EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{12C5E68F-168B-4805-9788-BA51A3F541EE} = {C4CFE46D-65E7-4E9F-833E-AFE8D6DEED7F}
 	EndGlobalSection
 EndGlobal
