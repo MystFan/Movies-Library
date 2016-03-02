@@ -165,6 +165,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -249,6 +250,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\MoviesLibrary.Data.Common\MoviesLibrary.Data.Common.csproj">
+      <Project>{d2242ccd-d166-4a8d-8fbe-80aa8fa7c312}</Project>
+      <Name>MoviesLibrary.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\MoviesLibrary.Data\MoviesLibrary.Data.csproj">
       <Project>{2f638350-5e90-4626-a936-3a9b0fa14b5c}</Project>
       <Name>MoviesLibrary.Data</Name>
@@ -256,6 +261,14 @@
     <ProjectReference Include="..\..\Data\MoviesLibrary.Models\MoviesLibrary.Models.csproj">
       <Project>{f29dd2f6-6e0d-45fb-97a4-3934db4daf1d}</Project>
       <Name>MoviesLibrary.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\MoviesLibrary.Services.Data\MoviesLibrary.Services.Data.csproj">
+      <Project>{d5cb3b18-d479-4372-87ab-64ec83778fc4}</Project>
+      <Name>MoviesLibrary.Services.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\MoviesLibrary.Services.Web\MoviesLibrary.Services.Web.csproj">
+      <Project>{d2e4ba28-d405-4e43-a0a0-8ad53d2528c0}</Project>
+      <Name>MoviesLibrary.Services.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\MoviesLibrary.Web.Infrastructure\MoviesLibrary.Web.Infrastructure.csproj">
       <Project>{0028b900-190e-4139-aa6e-8804da30f6ce}</Project>
