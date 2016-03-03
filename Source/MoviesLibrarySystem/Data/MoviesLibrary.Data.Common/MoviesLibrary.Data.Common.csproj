@@ -49,6 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel{TKey}.cs" />
+    <Compile Include="Constants\MovieImageValidations.cs" />
+    <Compile Include="Constants\MovieValidations.cs" />
+    <Compile Include="Constants\RatingValidations.cs" />
     <Compile Include="Contracts\IAuditInfo.cs" />
     <Compile Include="Contracts\IDeletableEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

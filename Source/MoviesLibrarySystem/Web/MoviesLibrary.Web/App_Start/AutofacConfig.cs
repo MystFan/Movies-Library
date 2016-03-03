@@ -1,4 +1,4 @@
-﻿namespace MoviesLibrary.Web.App_Start
+﻿namespace MoviesLibrary.Web
 {
     using System.Data.Entity;
     using System.Reflection;

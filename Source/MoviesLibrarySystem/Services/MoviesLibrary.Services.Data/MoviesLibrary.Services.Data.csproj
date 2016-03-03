@@ -39,8 +39,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IService.cs" />
+    <Compile Include="Contracts\IMoviesService.cs" />
+    <Compile Include="Contracts\IService{T}.cs" />
+    <Compile Include="MoviesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\MoviesLibrary.Data.Common\MoviesLibrary.Data.Common.csproj">
+      <Project>{d2242ccd-d166-4a8d-8fbe-80aa8fa7c312}</Project>
+      <Name>MoviesLibrary.Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\MoviesLibrary.Data\MoviesLibrary.Data.csproj">
+      <Project>{2f638350-5e90-4626-a936-3a9b0fa14b5c}</Project>
+      <Name>MoviesLibrary.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\MoviesLibrary.Models\MoviesLibrary.Models.csproj">
+      <Project>{f29dd2f6-6e0d-45fb-97a4-3934db4daf1d}</Project>
+      <Name>MoviesLibrary.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -56,12 +56,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actor.cs" />
+    <Compile Include="Director.cs" />
+    <Compile Include="Genre.cs" />
+    <Compile Include="Movie.cs" />
+    <Compile Include="MovieImage.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rating.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MoviesLibrary.Data.Common\MoviesLibrary.Data.Common.csproj">
+      <Project>{d2242ccd-d166-4a8d-8fbe-80aa8fa7c312}</Project>
+      <Name>MoviesLibrary.Data.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

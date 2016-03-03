@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -82,11 +86,26 @@
     <Compile Include="Account\SetPasswordViewModel.cs" />
     <Compile Include="Account\VerifyCodeViewModel.cs" />
     <Compile Include="Account\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="Movie\MovieViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\MoviesLibrary.Data.Common\MoviesLibrary.Data.Common.csproj">
+      <Project>{d2242ccd-d166-4a8d-8fbe-80aa8fa7c312}</Project>
+      <Name>MoviesLibrary.Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\MoviesLibrary.Models\MoviesLibrary.Models.csproj">
+      <Project>{f29dd2f6-6e0d-45fb-97a4-3934db4daf1d}</Project>
+      <Name>MoviesLibrary.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MoviesLibrary.Web.Infrastructure\MoviesLibrary.Web.Infrastructure.csproj">
+      <Project>{0028b900-190e-4139-aa6e-8804da30f6ce}</Project>
+      <Name>MoviesLibrary.Web.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
