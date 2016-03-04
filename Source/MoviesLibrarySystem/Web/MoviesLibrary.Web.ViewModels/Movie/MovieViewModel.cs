@@ -21,7 +21,7 @@
 
         public void CreateMappings(IConfiguration configuration)
         {
-            configuration.CreateMap<MoviesLibrary.Models.Movie, MovieViewModel>("MovieViewModel")
+            configuration.CreateMap<MoviesLibrary.Models.Movie, MovieViewModel>(this.GetType().Name)
                 .ForMember(mv => mv.Genre, opt => opt.MapFrom(m => m.Genre.ToString()));
         }
     }
