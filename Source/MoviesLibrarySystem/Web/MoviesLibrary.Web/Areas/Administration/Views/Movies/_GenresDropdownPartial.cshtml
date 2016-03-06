@@ -1,0 +1,21 @@
+﻿@model IList<string>
+
+@{
+    var genres = new List<SelectListItem>();
+
+    for (int i = 0; i < Model.Count(); i++)
+    {
+        genres.Add(new SelectListItem()
+        {
+            Text = Model[i],
+            Value = i.ToString()
+        });
+    }
+}
+
+<div class="form-group">
+    @Html.Label("Genre", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownList("GenreType", genres, new { @class = "form-control" })
+    </div>
+</div>

@@ -18,7 +18,7 @@
         [Required]
         public byte[] Content { get; set; }
 
-        public bool IsPoster { get; set; }
+        public bool IsCover { get; set; }
 
         public int MovieId { get; set; }
 

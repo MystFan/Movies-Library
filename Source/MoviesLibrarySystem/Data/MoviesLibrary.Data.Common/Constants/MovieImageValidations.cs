@@ -10,6 +10,6 @@
 
         public const int ExtensionMinLength = 2;
 
-        public const int MaxContentLength = 1000000;
+        public const int MaxContentLength = 500000;
     }
 }

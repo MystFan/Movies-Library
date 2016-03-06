@@ -24,7 +24,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
                     @if (this.User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("Add", "Add", "Movies", new { area = "Administration" }, null)</li>
+                        <li>@Html.ActionLink("Add Movie", "Create", "Movies", new { area = "Administration" }, null)</li>
                     }
                 </ul>
 
