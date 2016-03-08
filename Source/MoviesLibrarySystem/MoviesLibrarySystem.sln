@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesLibrary.Services.Web"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesLibrary.Web.Tests", "Tests\MoviesLibrary.Web.Tests\MoviesLibrary.Web.Tests.csproj", "{E67EDE10-F2F5-421B-B0D1-E626FA84B91B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{F5805608-08C4-49B9-980C-F69BF2C78DB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesLibrary.Common", "Common\MoviesLibrary.Common\MoviesLibrary.Common.csproj", "{C1E9BFE2-9110-4994-B80E-7560D5E82282}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +75,10 @@ Global
 		{E67EDE10-F2F5-421B-B0D1-E626FA84B91B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E67EDE10-F2F5-421B-B0D1-E626FA84B91B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E67EDE10-F2F5-421B-B0D1-E626FA84B91B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1E9BFE2-9110-4994-B80E-7560D5E82282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1E9BFE2-9110-4994-B80E-7560D5E82282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1E9BFE2-9110-4994-B80E-7560D5E82282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1E9BFE2-9110-4994-B80E-7560D5E82282}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,5 +93,6 @@ Global
 		{D5CB3B18-D479-4372-87AB-64EC83778FC4} = {A03C0F68-43F3-4994-BE7E-9160C0046B8B}
 		{D2E4BA28-D405-4E43-A0A0-8AD53D2528C0} = {A03C0F68-43F3-4994-BE7E-9160C0046B8B}
 		{E67EDE10-F2F5-421B-B0D1-E626FA84B91B} = {5CAD15AF-48AB-49AE-AC9C-FDB2F7DF62D9}
+		{C1E9BFE2-9110-4994-B80E-7560D5E82282} = {F5805608-08C4-49B9-980C-F69BF2C78DB1}
 	EndGlobalSection
 EndGlobal

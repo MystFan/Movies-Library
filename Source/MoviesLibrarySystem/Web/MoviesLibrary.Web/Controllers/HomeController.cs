@@ -9,21 +9,32 @@
 
     public class HomeController : BaseController
     {
-        private IMoviesService moviesData;
+        private IMoviesService moviesService;
+        private IMovieImagesService movieImagesService;
 
-        public HomeController(IMoviesService moviesData)
+        public HomeController(IMoviesService moviesService, IMovieImagesService movieImagesService)
         {
-            this.moviesData = moviesData;
+            this.moviesService = moviesService;
+            this.movieImagesService = movieImagesService;
         }
 
         public ActionResult Index()
         {
-            var movies = this.moviesData
-                .GetAll()
-                .ProjectTo<MovieViewModel>()
+            var movies = this.moviesService
+                .GetLastAdded(3)
+                .ProjectTo<MovieViewModel>()               
                 .ToList();
 
-            return this.View();
+            return this.View(movies);
+        }
+
+        [HttpGet]
+        public ActionResult GetImage(string id)
+        {
+            var img = this.movieImagesService.GetById(id);
+            string imgExtension = img.Extension;
+
+            return new FileContentResult(img.Content, "image/" + imgExtension);
         }
     }
 }

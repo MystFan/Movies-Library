@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D5CB3B18-D479-4372-87AB-64EC83778FC4}</ProjectGuid>
+    <ProjectGuid>{C1E9BFE2-9110-4994-B80E-7560D5E82282}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MoviesLibrary.Services.Data</RootNamespace>
-    <AssemblyName>MoviesLibrary.Services.Data</AssemblyName>
+    <RootNamespace>MoviesLibrary.Common</RootNamespace>
+    <AssemblyName>MoviesLibrary.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,7 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,32 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IGenresService.cs" />
-    <Compile Include="Contracts\IMovieImagesService.cs" />
-    <Compile Include="Contracts\IMoviesService.cs" />
-    <Compile Include="Contracts\IService{T}.cs" />
-    <Compile Include="GenresService.cs" />
-    <Compile Include="MovieImagesService.cs" />
-    <Compile Include="MoviesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\MoviesLibrary.Common\MoviesLibrary.Common.csproj">
-      <Project>{c1e9bfe2-9110-4994-b80e-7560d5e82282}</Project>
-      <Name>MoviesLibrary.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Data\MoviesLibrary.Data.Common\MoviesLibrary.Data.Common.csproj">
-      <Project>{d2242ccd-d166-4a8d-8fbe-80aa8fa7c312}</Project>
-      <Name>MoviesLibrary.Data.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Data\MoviesLibrary.Data\MoviesLibrary.Data.csproj">
-      <Project>{2f638350-5e90-4626-a936-3a9b0fa14b5c}</Project>
-      <Name>MoviesLibrary.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Data\MoviesLibrary.Models\MoviesLibrary.Models.csproj">
-      <Project>{f29dd2f6-6e0d-45fb-97a4-3934db4daf1d}</Project>
-      <Name>MoviesLibrary.Models</Name>
-    </ProjectReference>
+    <Compile Include="Providers\IdentifierProvider.cs" />
+    <Compile Include="Providers\IIdentifierProvider.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

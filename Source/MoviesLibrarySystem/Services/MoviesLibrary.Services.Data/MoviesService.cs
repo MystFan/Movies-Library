@@ -1,13 +1,13 @@
 ﻿namespace MoviesLibrary.Services.Data
 {
+    using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
+    using System.Web;
 
     using MoviesLibrary.Data.Repositories;
     using MoviesLibrary.Models;
     using MoviesLibrary.Services.Data.Contracts;
-    using System.Collections.Generic;
-    using System.Web;
-    using System.IO;
 
     public class MoviesService : IMoviesService
     {
@@ -23,6 +23,12 @@
             return this.movies.All();
         }
 
+        public IQueryable<Movie> GetLastAdded(int count)
+        {
+            return this.GetAll()
+                .OrderByDescending(m => m.CreatedOn)
+                .Take(count);
+        }
 
         public void Add(string title, string description, int year, int genreType, int coverIndex, IEnumerable<string> actorNames, IEnumerable<string> directorNames, IEnumerable<HttpPostedFileBase> images)
         {

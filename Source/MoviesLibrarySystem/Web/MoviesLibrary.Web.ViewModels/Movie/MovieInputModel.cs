@@ -24,6 +24,9 @@
         [Range(MovieValidations.MinYear, MovieValidations.MaxYear)]
         public int Year { get; set; }
 
+        [Required]
+        public int PosterIndex { get; set; }
+
         [FileExtension(FileExtensions = new string[] { ".png", ".jpg" })]
         [FileCount(MinCount = 1, MaxCount = 5)]
         public IEnumerable<HttpPostedFileBase> MovieImages { get; set; }

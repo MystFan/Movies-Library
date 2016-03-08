@@ -87,6 +87,7 @@
     <Compile Include="Account\SetPasswordViewModel.cs" />
     <Compile Include="Account\VerifyCodeViewModel.cs" />
     <Compile Include="Account\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="Image\MovieImageViewModel.cs" />
     <Compile Include="Movie\MovieInputModel.cs" />
     <Compile Include="Movie\MovieViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +97,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\MoviesLibrary.Common\MoviesLibrary.Common.csproj">
+      <Project>{c1e9bfe2-9110-4994-b80e-7560d5e82282}</Project>
+      <Name>MoviesLibrary.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\MoviesLibrary.Data.Common\MoviesLibrary.Data.Common.csproj">
       <Project>{d2242ccd-d166-4a8d-8fbe-80aa8fa7c312}</Project>
       <Name>MoviesLibrary.Data.Common</Name>

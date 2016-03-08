@@ -9,11 +9,13 @@
 
     public class MoviesController : AdminBaseController
     {
-        private IGenresService genresData;
+        private IGenresService genresService;
+        private IMoviesService moviesService;
 
-        public MoviesController(IGenresService genresData)
+        public MoviesController(IGenresService genresService, IMoviesService moviesService)
         {
-            this.genresData = genresData;
+            this.genresService = genresService;
+            this.moviesService = moviesService;
         }
 
         [HttpGet]
@@ -24,23 +26,31 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(MovieInputModel model, IEnumerable<HttpPostedFileBase> movieImages)
+        public ActionResult Create(MovieInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.View(model);
             }
 
+            this.moviesService.Add(
+                    model.Title,
+                    model.Description,
+                    model.Year,
+                    model.GenreType,
+                    model.PosterIndex,
+                    model.Actors,
+                    model.Directors,
+                    model.MovieImages
+                );
 
-
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("Index", "Home", new { Area = string.Empty });
         }
 
-        [HttpGet]
         [ChildActionOnly]
-        public ActionResult All()
+        public ActionResult Genres()
         {
-            var genres = this.genresData.GetAll();
+            var genres = this.genresService.GetAll();
             return this.PartialView("_GenresDropdownPartial", genres);
         } 
     }

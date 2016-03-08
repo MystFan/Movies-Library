@@ -7,43 +7,44 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm("Create", "Movies", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" })) 
+@using (Html.BeginForm("Create", "Movies", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                @Html.ValidationMessageFor(model => model.Title, string.Empty, new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                @Html.ValidationMessageFor(model => model.Description, string.Empty, new { @class = "text-danger" })
             </div>
         </div>
 
-        @Html.Action("All", "Movies", new { area = "Administration" })
+        @Html.Action("Genres", "Movies", new { area = "Administration" })
 
         <div class="form-group">
             @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                @Html.ValidationMessageFor(model => model.Year, string.Empty, new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.Label("Images", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" id="add-images-container">
-                @Html.ValidationMessageFor(model => model.MovieImages, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.MovieImages, string.Empty, new { @class = "text-danger" })
+                <input type="radio" value="0" name="PosterIndex" />
                 <input type="file" name="movieImages" class="form-control" />
             </div>
             <div class="text-center">
@@ -54,11 +55,22 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Actors, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" id="add-actor-container">
-                @Html.ValidationMessageFor(model => model.Actors, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Actors, string.Empty, new { @class = "text-danger" })
                 <input type="text" name="Actors[0]" class="form-control" required="required" />
             </div>
             <div class="text-center">
                 <input type="button" id="btn-add-actor" class="btn btn-success" value="Add Actor" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Directors, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" id="add-director-container">
+                @Html.ValidationMessageFor(model => model.Directors, string.Empty, new { @class = "text-danger" })
+                <input type="text" name="Directors[0]" class="form-control" required="required" />
+            </div>
+            <div class="text-center">
+                <input type="button" id="btn-add-director" class="btn btn-success" value="Add Director" />
             </div>
         </div>
 
@@ -72,4 +84,5 @@
 
 @section scripts{
     <script src="~/Scripts/movieUpload.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
 }
