@@ -6,6 +6,6 @@
 
         public const string MoviesCacheKey = "LastMovies";
 
-        public const int MoviesCacheDuration = 60 * 0;
+        public const int MoviesCacheDuration = 60 * 10;
     }
 }

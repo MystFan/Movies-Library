@@ -5,12 +5,22 @@
     using System.Linq;
 
     using AutoMapper;
+    using MoviesLibrary.Common;
     using MoviesLibrary.Web.Infrastructure.Mappings;
     using MoviesLibrary.Web.ViewModels.Image;
 
     public class MovieViewModel : IMapFrom<MoviesLibrary.Models.Movie>, IHaveCustomMappings
     {
         public int Id { get; set; }
+
+        public string ViewId
+        {
+            get
+            {
+                IdentifierProvider idProvider = new IdentifierProvider();
+                return idProvider.EncodeId(this.Id);
+            }
+        }
 
         public string Title { get; set; }
 

@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Web;
 
+    using MoviesLibrary.Common;
     using MoviesLibrary.Data.Repositories;
     using MoviesLibrary.Models;
     using MoviesLibrary.Services.Data.Contracts;
@@ -47,6 +48,21 @@
             });
 
             this.movies.SaveChanges();
+        }
+
+        public Movie GetByViewId(string viewId)
+        {
+            IdentifierProvider idProvider = new IdentifierProvider();
+            int id = idProvider.DecodeId(viewId);
+            var movie = this.GetById(id);
+
+            return movie;
+        }
+
+        public Movie GetById(int id)
+        {
+            var movie = this.movies.GetById(id);
+            return movie;
         }
 
         private List<MovieImage> HttpFileToMovieImage(IEnumerable<HttpPostedFileBase> images)

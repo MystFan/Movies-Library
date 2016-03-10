@@ -18,9 +18,9 @@
                 <img src="@Url.Action("GetImage", "Home", new { id = movie.Images.FirstOrDefault(i => i.IsCover).ViewId })" class="img-responsive" />
             </p>
             <p>
-                @if (movie.Description.Length > 300)
+                @if (movie.Description.Length > MoviesLibrary.Data.Common.Constants.MovieValidations.DescriptionMinLength)
                 {
-                    @(movie.Description.Substring(0, 300) + "...")
+                    @(movie.Description.Substring(0, MoviesLibrary.Data.Common.Constants.MovieValidations.DescriptionMinLength) + "...")
                 }
                 else
                 {
@@ -28,11 +28,10 @@
                 }
             </p>
             <p class="lead">
-                @Html.ActionLink("Read More", "Details", "Movies", new { area = "Users", id = movie.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Read More", "Details", "Movies", new { area = "Users", id = movie.ViewId }, new { @class = "btn btn-default" })
             </p>
             <ul class="list-inline">
                 <li>added: @movie.CreatedOn.ToString("MM/dd/yyyy")</li>
-                <li><a href="#"><i class="glyphicon glyphicon-comment"></i> </a></li>
             </ul>
         </div>
     }

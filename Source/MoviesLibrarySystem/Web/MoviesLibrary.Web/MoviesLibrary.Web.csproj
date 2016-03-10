@@ -177,6 +177,9 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminBaseController.cs" />
     <Compile Include="Areas\Administration\Controllers\MoviesController.cs" />
+    <Compile Include="Areas\Users\Controllers\MoviesController.cs" />
+    <Compile Include="Areas\Users\Controllers\UsersBaseController.cs" />
+    <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -203,6 +206,10 @@
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\Movies\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Movies\_GenresDropdownPartial.cshtml" />
+    <Content Include="Areas\Users\Views\web.config" />
+    <Content Include="Areas\Users\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Users\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Users\Views\Movies\Details.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -255,6 +262,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Areas\Users\Models\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
