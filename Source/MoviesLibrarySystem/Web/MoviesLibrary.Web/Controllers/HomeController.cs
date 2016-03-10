@@ -4,6 +4,7 @@
     using System.Web.Mvc;
 
     using AutoMapper.QueryableExtensions;
+    using MoviesLibrary.Common.Globals;
     using MoviesLibrary.Services.Data.Contracts;
     using MoviesLibrary.Web.ViewModels.Movie;
 
@@ -20,10 +21,12 @@
 
         public ActionResult Index()
         {
-            var movies = this.moviesService
-                .GetLastAdded(3)
-                .ProjectTo<MovieViewModel>()               
-                .ToList();
+            var movies = this.Cache.Get(HomePageConstants.MoviesCacheKey,
+                                    () => this.moviesService
+                                            .GetLastAdded(HomePageConstants.MoviesCount)
+                                            .ProjectTo<MovieViewModel>()
+                                            .ToList(),
+                                    HomePageConstants.MoviesCacheDuration);
 
             return this.View(movies);
         }

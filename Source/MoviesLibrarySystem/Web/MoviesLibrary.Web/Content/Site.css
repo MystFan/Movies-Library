@@ -22,3 +22,21 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.img-responsive{
+    max-width: 100%;
+    height: auto;
+    background-size:auto;
+}
+
+@media all and (min-height: 250px) {
+    .img-responsive {
+        height: 300px;
+    }
+}
+
+@media all and (min-width: 250px) {
+    .img-responsive {
+        width: 300px;
+    }
+}

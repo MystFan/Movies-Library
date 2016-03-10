@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Globals\ApplicationConstants.cs" />
+    <Compile Include="Globals\HomePageConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\IdentifierProvider.cs" />
     <Compile Include="Providers\IIdentifierProvider.cs" />

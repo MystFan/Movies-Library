@@ -4,28 +4,36 @@
 }
 
 <div class="jumbotron">
-
+    <h1 class="text-center">@MoviesLibrary.Common.Globals.ApplicationConstants.Name</h1>
 </div>
 
-@{
-
-}
-
+<h2 class="text-center">Newest uploads movies</h2>
 <div class="row">
     @foreach (var movie in Model)
     {
         <div class="col-md-3">
-            <div>@movie.Title</div>
+            <h3 class="text-center">@movie.Title</h3>
+            <p class="text-center">(@(movie.Year))</p>
             <p>
-                <img src="@Url.Action("GetImage", "Home", new { id = movie.Images.FirstOrDefault(i => i.IsCover).ViewId })" />
+                <img src="@Url.Action("GetImage", "Home", new { id = movie.Images.FirstOrDefault(i => i.IsCover).ViewId })" class="img-responsive" />
             </p>
-            @foreach (var image in movie.Images)
-            {
-                if (!image.IsCover)
+            <p>
+                @if (movie.Description.Length > 300)
                 {
-                    <img src="@Url.Action("GetImage", "Home", new { id = image.ViewId }) class="img-responsive" />
+                    @(movie.Description.Substring(0, 300) + "...")
                 }
-            }
+                else
+                {
+                    @movie.Description
+                }
+            </p>
+            <p class="lead">
+                @Html.ActionLink("Read More", "Details", "Movies", new { area = "Users", id = movie.Id }, new { @class = "btn btn-default" })
+            </p>
+            <ul class="list-inline">
+                <li>added: @movie.CreatedOn.ToString("MM/dd/yyyy")</li>
+                <li><a href="#"><i class="glyphicon glyphicon-comment"></i> </a></li>
+            </ul>
         </div>
     }
 </div>
