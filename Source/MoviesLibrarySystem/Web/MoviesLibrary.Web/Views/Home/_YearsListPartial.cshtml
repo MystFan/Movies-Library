@@ -1,0 +1,12 @@
+﻿@model IEnumerable<string>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="tag-list well" id="container">
+            @foreach (var year in Model)
+            {
+                @Html.ActionLink(year, "GetByYear", "Movies", new { area = "Users", year = year }, new { @class = "btn btn-primary" })
+            }
+        </div>
+    </div>
+</div>

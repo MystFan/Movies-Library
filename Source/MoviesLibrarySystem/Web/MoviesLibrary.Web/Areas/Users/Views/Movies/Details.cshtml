@@ -4,15 +4,18 @@
     Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@Model.Title</h1>
-<div>
-    <img src="@Url.Action("GetImage", "Home", new { area = string.Empty, id = Model.Images.FirstOrDefault(i => i.IsCover).ViewId })" />
-</div>
+<header class="text-center text-danger">
+    <p>
+        <h1>@Model.Title</h1>
+    </p>
+    <div>
+        <img src="@Url.Action("GetImage", "Home", new { area = string.Empty, id = Model.Images.FirstOrDefault(i => i.IsCover).ViewId })" class="img-responsive" />
+    </div>
+</header>
 <section id="details">
     <div class="container">
-        <div class="page_title center">
-            <h2>About Movie</h2>
-        </div><div class="row about_content">
+        <h2 class="text-info">About Movie</h2>
+        <div class="row">
             <div class="col-lg-6 col-md-6 padbot30">
                 <p>
                     @Model.Description
@@ -53,7 +56,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
                     <div class="row">
-                        <h3>Actors</h3>
+                        <h3 class="text-info">Actors</h3>
                         @foreach (var actorName in Model.Actors)
                         {
                             <div class="col-lg-6 col-md-6"><p>@actorName</p></div>

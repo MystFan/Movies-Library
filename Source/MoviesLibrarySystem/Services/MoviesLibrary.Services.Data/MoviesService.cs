@@ -31,6 +31,15 @@
                 .Take(count);
         }
 
+        public IQueryable<Movie> GetByYear(int year)
+        {
+            var movies = this.GetAll()
+                .Where(m => m.Year == year)
+                .OrderByDescending(m => m.Year);
+
+            return movies;
+        }
+
         public void Add(string title, string description, int year, int genreType, int coverIndex, IEnumerable<string> actorNames, IEnumerable<string> directorNames, IEnumerable<HttpPostedFileBase> images)
         {
             var movieImages = this.HttpFileToMovieImage(images);
@@ -63,6 +72,15 @@
         {
             var movie = this.movies.GetById(id);
             return movie;
+        }
+
+        public IQueryable<int> GetMovieYears()
+        {
+            var years = this.GetAll()
+                .OrderByDescending(m => m.Year)
+                .Select(m => m.Year);
+
+            return years;
         }
 
         private List<MovieImage> HttpFileToMovieImage(IEnumerable<HttpPostedFileBase> images)

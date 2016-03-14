@@ -12,9 +12,13 @@
 
         IQueryable<Movie> GetLastAdded(int count);
 
+        IQueryable<Movie> GetByYear(int year);
+
         Movie GetByViewId(string viewId);
 
         Movie GetById(int id);
+
+        IQueryable<int> GetMovieYears();
 
         void Add(string title, string description, int year, int genreType, int coverIndex, IEnumerable<string> actorNames, IEnumerable<string> directorNames, IEnumerable<HttpPostedFileBase> images);
     }

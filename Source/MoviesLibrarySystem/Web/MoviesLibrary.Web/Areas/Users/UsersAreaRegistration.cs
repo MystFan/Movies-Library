@@ -2,17 +2,17 @@
 {
     using System.Web.Mvc;
 
-    public class UsersAreaRegistration : AreaRegistration 
+    public class UsersAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "Users";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "Users_default",

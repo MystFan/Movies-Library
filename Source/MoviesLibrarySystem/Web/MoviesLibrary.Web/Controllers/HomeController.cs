@@ -7,6 +7,7 @@
     using MoviesLibrary.Common.Globals;
     using MoviesLibrary.Services.Data.Contracts;
     using MoviesLibrary.Web.ViewModels.Movie;
+    using System.Collections.Generic;
 
     public class HomeController : BaseController
     {
@@ -29,6 +30,19 @@
                                     HomePageConstants.MoviesCacheDuration);
 
             return this.View(movies);
+        }
+
+        [HttpGet]
+        [ChildActionOnly]
+        [OutputCache(Duration = HomePageConstants.YearsCacheDuration)]
+        public ActionResult GetYears()
+        {
+            var years = this.moviesService
+                .GetMovieYears()
+                .Select(y => y.ToString())
+                .ToList();
+
+            return this.PartialView("_YearsListPartial", years);
         }
 
         [HttpGet]

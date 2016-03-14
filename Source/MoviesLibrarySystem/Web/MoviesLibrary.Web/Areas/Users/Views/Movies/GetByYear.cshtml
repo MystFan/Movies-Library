@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MoviesLibrary.Web.ViewModels.Movie.MovieSearchResultViewModel>
+
+@{
+    ViewBag.Title = "GetByYear";
+    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" id="recipes-container">
+    @if (Model != null)
+    {
+        foreach (var movie in Model)
+        {
+            <div class="col-md-4">
+                <div class="bs-component">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">@movie.Title</h3>
+                        </div>
+                        <div class="panel-body">
+                            <img src="@Url.Action("GetImage", "Home", new { Area = string.Empty, id = movie.ViewId }, null)" class="img-responsive" />
+                            <div id="@("movie-" + movie.ViewId.Substring(0, 7))">
+                                @movie.Description.Substring(0, MoviesLibrary.Data.Common.Constants.MovieValidations.DescriptionMinLength)
+                                <br />
+                                @Ajax.ActionLink("See more", "GetMovieDescription", new { id = movie.ViewId }, new AjaxOptions()
+                                   {
+                                       HttpMethod = "GET",
+                                       UpdateTargetId = "movie-" + movie.ViewId.Substring(0, 7),
+                                       InsertionMode = InsertionMode.Replace
+                                   })
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            @Html.ActionLink("More details", "Details", "Movies", new { id = movie.ViewId, Area = "Users" }, new { @class = "btn btn-success", title = "Movie details" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        @Html.Partial("_MoviesSearchNoResult")
+    }
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}

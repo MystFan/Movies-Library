@@ -89,6 +89,7 @@
     <Compile Include="Account\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="Image\MovieImageViewModel.cs" />
     <Compile Include="Movie\MovieInputModel.cs" />
+    <Compile Include="Movie\MovieSearchResultViewModel.cs" />
     <Compile Include="Movie\MovieViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

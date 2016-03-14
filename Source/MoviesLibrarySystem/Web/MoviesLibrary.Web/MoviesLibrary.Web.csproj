@@ -210,6 +210,8 @@
     <Content Include="Areas\Users\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Users\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Users\Views\Movies\Details.cshtml" />
+    <Content Include="Areas\Users\Views\Movies\GetByYear.cshtml" />
+    <Content Include="Areas\Users\Views\Shared\_MoviesSearchNoResult.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -258,6 +260,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\_YearsListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
