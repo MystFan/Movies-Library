@@ -179,6 +179,7 @@
     <Compile Include="Areas\Administration\Controllers\MoviesController.cs" />
     <Compile Include="Areas\Users\Controllers\MoviesController.cs" />
     <Compile Include="Areas\Users\Controllers\UsersBaseController.cs" />
+    <Compile Include="Areas\Users\Controllers\RatingController.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -223,6 +224,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\movie-vote.js" />
     <Content Include="Scripts\movieUpload.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -266,6 +268,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Users\Models\" />
+    <Folder Include="Areas\Users\Views\Vote\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

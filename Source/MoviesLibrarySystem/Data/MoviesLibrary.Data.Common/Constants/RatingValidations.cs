@@ -2,7 +2,7 @@
 {
     public class RatingValidations
     {
-        public const int MinRating = 2;
+        public const int MinRating = 0;
 
         public const int MaxRating = 10;
     }

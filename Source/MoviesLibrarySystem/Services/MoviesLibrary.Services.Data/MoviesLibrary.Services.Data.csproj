@@ -43,11 +43,13 @@
     <Compile Include="Contracts\IGenresService.cs" />
     <Compile Include="Contracts\IMovieImagesService.cs" />
     <Compile Include="Contracts\IMoviesService.cs" />
+    <Compile Include="Contracts\IRatingService.cs" />
     <Compile Include="Contracts\IService{T}.cs" />
     <Compile Include="GenresService.cs" />
     <Compile Include="MovieImagesService.cs" />
     <Compile Include="MoviesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\MoviesLibrary.Common\MoviesLibrary.Common.csproj">

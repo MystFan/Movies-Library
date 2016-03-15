@@ -40,3 +40,11 @@ textarea {
         width: 300px;
     }
 }
+
+.vote-icon{
+    cursor: pointer;
+}
+
+.glyphicon-star{
+    color: yellow;
+}

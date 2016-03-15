@@ -30,6 +30,10 @@
 
         public int Year { get; set; }
 
+        public int Rating { get; set; }
+
+        public int RatingsCount { get; set; }
+
         public IEnumerable<string> Actors { get; set; }
 
         public IEnumerable<string> Directors { get; set; }
@@ -48,6 +52,12 @@
 
             configuration.CreateMap<MoviesLibrary.Models.Movie, MovieViewModel>(this.GetType().Name)
                 .ForMember(mv => mv.Directors, opt => opt.MapFrom(m => m.Directors.Select(d => d.Name)));
+
+            configuration.CreateMap<MoviesLibrary.Models.Movie, MovieViewModel>(this.GetType().Name)
+                .ForMember(mv => mv.Rating, opt => opt.MapFrom(m => m.Ratings.Any() ? m.Ratings.Sum(r => r.Value) : 0));
+
+            configuration.CreateMap<MoviesLibrary.Models.Movie, MovieViewModel>(this.GetType().Name)
+                .ForMember(mv => mv.RatingsCount, opt => opt.MapFrom(m => m.Ratings.Count));
         }
     }
 }
