@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomAttributes\CollectionCount.cs" />
+    <Compile Include="CustomAttributes\HttpFileContentLength.cs" />
     <Compile Include="CustomAttributes\FileCount.cs" />
     <Compile Include="CustomAttributes\FileExtension.cs" />
     <Compile Include="CustomFilters\AjaxOnlyAttribute.cs" />

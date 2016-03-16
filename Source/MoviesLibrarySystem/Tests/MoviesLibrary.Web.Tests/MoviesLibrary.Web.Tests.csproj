@@ -68,6 +68,7 @@
     <Compile Include="CustomAttributesTests\CollectionCountTersts.cs" />
     <Compile Include="CustomAttributesTests\FileExtensionAttributeTests.cs" />
     <Compile Include="CustomAttributesTests\FilesCountAttrubuteTests.cs" />
+    <Compile Include="CustomAttributesTests\HttpFileContentLengthTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +78,10 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\MoviesLibrary.Data.Common\MoviesLibrary.Data.Common.csproj">
+      <Project>{d2242ccd-d166-4a8d-8fbe-80aa8fa7c312}</Project>
+      <Name>MoviesLibrary.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Web\MoviesLibrary.Web.Infrastructure\MoviesLibrary.Web.Infrastructure.csproj">
       <Project>{0028b900-190e-4139-aa6e-8804da30f6ce}</Project>
       <Name>MoviesLibrary.Web.Infrastructure</Name>

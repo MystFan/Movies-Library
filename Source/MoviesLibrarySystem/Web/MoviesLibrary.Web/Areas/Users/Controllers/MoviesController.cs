@@ -1,5 +1,6 @@
 ﻿namespace MoviesLibrary.Web.Areas.Users.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
@@ -18,6 +19,28 @@
         public MoviesController(IMoviesService moviesService)
         {
             this.moviesService = moviesService;
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult All(string title, int? genreType, int page = 1)
+        {
+            var moviesResult = this.moviesService
+                .Get(page, title, genreType)
+                .ProjectTo<MovieViewModel>()
+                .ToList();
+
+            int totalMovies = moviesResult.Count;
+            int totalPages = (int)Math.Ceiling(totalMovies / (decimal)MovieConstants.MoviesListDefaultPageSize);
+
+            MovieListViewModel viewModel = new MovieListViewModel()
+            {
+                CurrentPage = page,
+                TotalPages = totalPages,
+                Movies = moviesResult
+            };
+
+            return this.View(viewModel);
         }
 
         [HttpGet]
@@ -49,6 +72,7 @@
 
         [HttpGet]
         [AjaxOnly]
+        [AllowAnonymous]
         public ActionResult GetMovieDescription(string id)
         {
             var description = this.moviesService

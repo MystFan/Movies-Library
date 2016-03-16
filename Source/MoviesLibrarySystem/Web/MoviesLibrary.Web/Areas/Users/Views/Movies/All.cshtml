@@ -1,0 +1,77 @@
+﻿@model MoviesLibrary.Web.ViewModels.Movie.MovieListViewModel
+@{
+    ViewBag.Title = "All";
+    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bs-component">
+    <h2 class="text-center">All Movies</h2>
+</div>
+
+@if (this.User.Identity.IsAuthenticated)
+{
+    <div class="row" id="search-movie">
+
+        @using (Html.BeginForm("All", "Movies", FormMethod.Get, new { @class = "form-horizontal" }))
+        {
+            <div class="col-sm-3 col-md-3">
+                <div class="input-group">
+                    <input type="text" id="input-movie-title" class="form-control" placeholder="Title" name="title">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+                @Html.Action("Genres", "Movies", new { area = "Administration" })
+            </div>
+        }
+    </div>
+}
+
+<div id="container">
+    @if (Model.Movies.Count() > 0)
+    {
+        @Html.Partial("_MoviesListPartial", Model.Movies)
+    }
+    else
+    {
+        <h3>There are no results that match your search!</h3>
+    }
+</div>
+
+<nav class="text-center">
+    <ul class="pagination">
+        @if (Model.CurrentPage > 1)
+        {
+            <li>
+                <a href="/Users/Movies/All?page=@(Model.CurrentPage - 1)" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        }
+
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            var className = string.Empty;
+            if (i == Model.CurrentPage)
+            {
+                className = "active";
+            }
+            <li class="@className"><a href="/Users/Movies/All?page=@i">@i</a></li>
+        }
+
+        <li>
+            @if (Model.CurrentPage < Model.TotalPages)
+            {
+                <a href="/Users/Movies/All?page=@(Model.CurrentPage + 1)" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            }
+        </li>
+    </ul>
+</nav>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}

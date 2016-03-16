@@ -1,5 +1,6 @@
 ﻿namespace MoviesLibrary.Services.Data
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -9,6 +10,7 @@
     using MoviesLibrary.Data.Repositories;
     using MoviesLibrary.Models;
     using MoviesLibrary.Services.Data.Contracts;
+    using MoviesLibrary.Common.Globals;
 
     public class MoviesService : IMoviesService
     {
@@ -50,7 +52,7 @@
                 Title = title,
                 Description = description,
                 Year = year,
-                Actors = actorNames.Select(n => new Actor() { Name = n}).ToList(),
+                Actors = actorNames.Select(n => new Actor() { Name = n }).ToList(),
                 Directors = directorNames.Select(n => new Director() { Name = n }).ToList(),
                 Images = movieImages,
                 Genre = (Genre)genreType
@@ -106,6 +108,41 @@
             }
 
             return filesDataResult;
+        }
+
+        public IQueryable<Movie> Get(int page, string title, int? genreType)
+        {
+            title = title != null ? title : string.Empty;
+
+            IQueryable<Movie> moviesResult = null;
+            if (genreType.HasValue && genreType.Value >= 0 && title != string.Empty)
+            {
+                moviesResult = this.movies
+                    .All()
+                    .Where(m => m.Title.ToLower().Contains(title.ToLower()) && (int)m.Genre == genreType.Value);
+            }
+            else if (!genreType.HasValue && title != string.Empty)
+            {
+                moviesResult = this.movies
+                    .All()
+                    .Where(m => m.Title.ToLower().Contains(title.ToLower()));
+            }
+            else if (genreType.HasValue && genreType.Value >= 0 && title == string.Empty)
+            {
+                moviesResult = this.movies
+                    .All()
+                    .Where(m => (int)m.Genre == genreType.Value);
+            }
+            else
+            {
+                moviesResult = this.movies.All();
+            }
+
+            moviesResult
+                .Skip(MovieConstants.MoviesListDefaultPageSize * (page - 1))
+                .Take(MovieConstants.MoviesListDefaultPageSize);
+
+            return moviesResult;
         }
     }
 }

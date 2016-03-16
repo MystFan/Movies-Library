@@ -11,5 +11,7 @@
         public const int ExtensionMinLength = 2;
 
         public const int MaxContentLength = 500000;
+
+        public const int MinContentLength = 100000;
     }
 }

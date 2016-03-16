@@ -43,7 +43,15 @@
         public int GetMovieRating(int movieId)
         {
             var movie = this.movies.GetById(movieId);
-            int rating = movie.Ratings.Sum(r => r.Value) / movie.Ratings.Count();
+            var ratingsCount = movie.Ratings.Count();
+            var rating = 0;
+
+            if (ratingsCount == 0)
+            {
+                return rating;
+            }
+
+            rating = movie.Ratings.Sum(r => r.Value) / movie.Ratings.Count();
 
             return rating;
         }

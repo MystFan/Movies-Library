@@ -3,6 +3,12 @@
 @{
     var genres = new List<SelectListItem>();
 
+    genres.Add(new SelectListItem()
+    {
+        Text = "select genre",
+        Value = "-1"
+    });
+
     for (int i = 0; i < Model.Count(); i++)
     {
         genres.Add(new SelectListItem()
