@@ -30,7 +30,7 @@
                 .ProjectTo<MovieViewModel>()
                 .ToList();
 
-            int totalMovies = moviesResult.Count;
+            int totalMovies = this.moviesService.GetAll().Count();
             int totalPages = (int)Math.Ceiling(totalMovies / (decimal)MovieConstants.MoviesListDefaultPageSize);
 
             MovieListViewModel viewModel = new MovieListViewModel()

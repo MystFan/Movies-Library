@@ -138,9 +138,10 @@
                 moviesResult = this.movies.All();
             }
 
-            moviesResult
-                .Skip(MovieConstants.MoviesListDefaultPageSize * (page - 1))
-                .Take(MovieConstants.MoviesListDefaultPageSize);
+            moviesResult = moviesResult
+                    .OrderByDescending(m => m.CreatedOn)
+                    .Skip((page - 1) * MovieConstants.MoviesListDefaultPageSize)
+                    .Take(MovieConstants.MoviesListDefaultPageSize);
 
             return moviesResult;
         }

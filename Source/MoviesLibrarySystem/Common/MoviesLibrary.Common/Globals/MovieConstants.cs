@@ -8,6 +8,6 @@
 
         public const int MoviesCacheDuration = 60 * 1;
 
-        public const int MoviesListDefaultPageSize = 5;
+        public const int MoviesListDefaultPageSize = 3;
     }
 }
