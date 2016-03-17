@@ -19,8 +19,10 @@
 
         public void AddRating(string userId, int movieId, int ratingValue)
         {
-            var rating = this.ratings
+            var rating = this.movies
                 .All()
+                .FirstOrDefault(m => m.Id == movieId)
+                .Ratings
                 .FirstOrDefault(r => r.AuthorId == userId);
 
             if (rating != null)
