@@ -15,13 +15,16 @@
     public class MoviesController : UsersBaseController
     {
         private IMoviesService moviesService;
+        private IGenresService genresService;
 
-        public MoviesController(IMoviesService moviesService)
+        public MoviesController(IMoviesService moviesService, IGenresService genresService)
         {
             this.moviesService = moviesService;
+            this.genresService = genresService;
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult All(string title, int? genreType, int page = 1)
         {
             var moviesResult = this.moviesService
@@ -68,6 +71,13 @@
 
             return this.View(movies);
         }
+
+        [ChildActionOnly]
+        public ActionResult Genres()
+        {
+            var genres = this.genresService.GetAll();
+            return this.PartialView("_GenresDropdownPartial", genres);
+        } 
 
         [HttpGet]
         [AjaxOnly]

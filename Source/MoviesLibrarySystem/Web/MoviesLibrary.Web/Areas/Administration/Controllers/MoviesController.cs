@@ -12,12 +12,10 @@
 
     public class MoviesController : AdminBaseController
     {
-        private IGenresService genresService;
         private IMoviesService moviesService;
 
-        public MoviesController(IGenresService genresService, IMoviesService moviesService)
+        public MoviesController(IMoviesService moviesService)
         {
-            this.genresService = genresService;
             this.moviesService = moviesService;
         }
 
@@ -57,12 +55,5 @@
 
             return this.RedirectToAction("Index", "Home", new { Area = string.Empty });
         }
-
-        [ChildActionOnly]
-        public ActionResult Genres()
-        {
-            var genres = this.genresService.GetAll();
-            return this.PartialView("_GenresDropdownPartial", genres);
-        } 
     }
 }
