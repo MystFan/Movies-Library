@@ -1,11 +1,15 @@
 ﻿namespace MoviesLibrary.Web.ViewModels.Movie
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Linq;
     using System.Web;
 
     using MoviesLibrary.Data.Common.Constants;
     using MoviesLibrary.Web.Infrastructure.CustomAttributes;
+    using MoviesLibrary.Models;
+using MoviesLibrary.Common.Globals;
 
     public class MovieInputModel
     {
@@ -29,6 +33,7 @@
 
         [FileExtension(FileExtensions = new string[] { ".png", ".jpg" })]
         [FileCount(MinCount = 1, MaxCount = 5)]
+        [HttpFileContentLength(MinSize = MovieImageValidations.MinContentLength, MaxSize = MovieImageValidations.MaxContentLength)]
         public IEnumerable<HttpPostedFileBase> MovieImages { get; set; }
 
         [CollectionCount(MinCount = 1, MaxCount = 100)]

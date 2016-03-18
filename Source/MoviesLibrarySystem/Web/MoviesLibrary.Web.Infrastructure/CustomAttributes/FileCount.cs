@@ -10,9 +10,9 @@
         private const string DefaultErrorMessage = "Files collection must contain at least one file!";
         private const string RangeErrorMessage = "Files collection count must be between {0} and {1}";
 
-        public byte MinCount { get; set; }
+        public int MinCount { get; set; }
 
-        public byte MaxCount { get; set; }
+        public int MaxCount { get; set; }
 
         public override bool IsValid(object value)
         {
@@ -32,7 +32,9 @@
                     isValid = false;
                 }
 
-                if (files.Count() < this.MinCount || files.Count() > this.MaxCount)
+                int filesCount = files.Count(i => i != null);
+
+                if (filesCount < this.MinCount || filesCount > this.MaxCount)
                 {
                     this.ErrorMessage = this.ErrorMessage != null ? this.ErrorMessage : string.Format(RangeErrorMessage, this.MinCount, this.MaxCount);
                     isValid = false;

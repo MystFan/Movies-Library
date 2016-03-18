@@ -8,11 +8,11 @@
     using MoviesLibrary.Services.Data.Contracts;
     using MoviesLibrary.Web.Infrastructure.CustomFilters;
 
-    public class RatingController : UsersBaseController
+    public class RatingsController : UsersBaseController
     {
         private IRatingService ratingService;
 
-        public RatingController(IRatingService ratingService)
+        public RatingsController(IRatingService ratingService)
         {
             this.ratingService = ratingService;
         }

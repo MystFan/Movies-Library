@@ -32,7 +32,9 @@
                     return isValid;
                 }
 
-                if (items.Count() < this.MinCount || items.Count() > this.MaxCount)
+                int itemsCount = items.Count(i => i != null);
+
+                if (itemsCount < this.MinCount || itemsCount > this.MaxCount)
                 {
                     this.ErrorMessage = this.ErrorMessage != null ? this.ErrorMessage : string.Format(RangeErrorMessage, this.MinCount, this.MaxCount);
                     isValid = false;

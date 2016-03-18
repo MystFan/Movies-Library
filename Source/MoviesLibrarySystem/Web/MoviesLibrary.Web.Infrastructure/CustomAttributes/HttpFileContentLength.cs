@@ -38,7 +38,7 @@
                     if (file.ContentLength < this.MinSize || file.ContentLength > this.MaxSize)
                     {
                         isValid = false;
-                        this.ErrorMessage = this.ErrorMessage != null ? this.ErrorMessage : RangeErrorMessage;
+                        this.ErrorMessage = this.ErrorMessage != null ? this.ErrorMessage : string.Format(RangeErrorMessage, this.MinSize, this.MaxSize);
                         return isValid;
                     }
                 }

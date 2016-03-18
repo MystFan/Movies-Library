@@ -1,0 +1,37 @@
+﻿@model MoviesLibrary.Web.ViewModels.Actor.ActorViewModel
+@{
+    ViewBag.Title = "GetMovies";
+    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+}
+
+<div id="container">
+    <header>
+        <h1>@Model.Name</h1>
+    </header>
+
+    @if (Model.Movies.Count() > 0)
+    {
+        foreach (var movie in Model.Movies)
+        {
+            <div class="col-md-4">
+                <div class="bs-component">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">@movie.Title</h3>
+                        </div>
+                        <div class="panel-body">
+                            <img src="@Url.Action("GetImage", "Home", new { Area = string.Empty, id = movie.ViewId }, null)" class="img-responsive" />
+                        </div>
+                        <div class="panel-footer">
+                            @Html.ActionLink("More details", "Details", "Movies", new { area = "Users", id = movie.ViewId }, new { @class = "btn btn-success", title = "Movie details" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <h3>There are no results that match your search!</h3>
+    }
+</div>

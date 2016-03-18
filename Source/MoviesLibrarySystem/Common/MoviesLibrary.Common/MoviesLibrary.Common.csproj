@@ -46,6 +46,12 @@
     <Compile Include="Providers\IdentifierProvider.cs" />
     <Compile Include="Providers\IIdentifierProvider.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\MoviesLibrary.Models\MoviesLibrary.Models.csproj">
+      <Project>{f29dd2f6-6e0d-45fb-97a4-3934db4daf1d}</Project>
+      <Name>MoviesLibrary.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

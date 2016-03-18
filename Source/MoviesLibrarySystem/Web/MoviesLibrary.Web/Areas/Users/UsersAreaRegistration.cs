@@ -15,6 +15,12 @@
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
+                "Actor_Name",
+                "Users/Actors/GetMovies/{actorName}",
+                new { controller = "Actors", action = "GetMovies" }
+            );
+
+            context.MapRoute(
                 "Users_default",
                 "Users/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional },

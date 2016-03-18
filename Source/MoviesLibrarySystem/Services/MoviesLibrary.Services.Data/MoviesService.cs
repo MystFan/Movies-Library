@@ -7,10 +7,10 @@
     using System.Web;
 
     using MoviesLibrary.Common;
+    using MoviesLibrary.Common.Globals;
     using MoviesLibrary.Data.Repositories;
     using MoviesLibrary.Models;
     using MoviesLibrary.Services.Data.Contracts;
-    using MoviesLibrary.Common.Globals;
 
     public class MoviesService : IMoviesService
     {
@@ -85,31 +85,6 @@
             return years;
         }
 
-        private List<MovieImage> HttpFileToMovieImage(IEnumerable<HttpPostedFileBase> images)
-        {
-            List<MovieImage> filesDataResult = new List<MovieImage>();
-
-            foreach (var image in images)
-            {
-                if (image == null)
-                {
-                    continue;
-                }
-
-                MovieImage movieImage = new MovieImage();
-                movieImage.OriginalName = image.FileName;
-                movieImage.Extension = Path.GetExtension(image.FileName);
-
-                MemoryStream target = new MemoryStream();
-                image.InputStream.CopyTo(target);
-                movieImage.Content = target.ToArray();
-
-                filesDataResult.Add(movieImage);
-            }
-
-            return filesDataResult;
-        }
-
         public IQueryable<Movie> Get(int page, string title, int? genreType)
         {
             title = title != null ? title : string.Empty;
@@ -144,6 +119,31 @@
                     .Take(MovieConstants.MoviesListDefaultPageSize);
 
             return moviesResult;
+        }
+
+        private List<MovieImage> HttpFileToMovieImage(IEnumerable<HttpPostedFileBase> images)
+        {
+            List<MovieImage> filesDataResult = new List<MovieImage>();
+
+            foreach (var image in images)
+            {
+                if (image == null)
+                {
+                    continue;
+                }
+
+                MovieImage movieImage = new MovieImage();
+                movieImage.OriginalName = image.FileName;
+                movieImage.Extension = Path.GetExtension(image.FileName);
+
+                MemoryStream target = new MemoryStream();
+                image.InputStream.CopyTo(target);
+                movieImage.Content = target.ToArray();
+
+                filesDataResult.Add(movieImage);
+            }
+
+            return filesDataResult;
         }
     }
 }

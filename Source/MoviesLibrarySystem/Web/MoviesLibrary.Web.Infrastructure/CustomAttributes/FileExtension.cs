@@ -22,9 +22,15 @@
                 isValid = false;
                 return isValid;
             }
-            
+          
             if (files != null && this.FileExtensions.Length > 0)
             {
+                if (!files.Any(i => i != null))
+                {
+                    this.ErrorMessage = this.ErrorMessage != null ? this.ErrorMessage : DefaultErrorMessage;
+                    isValid = false;
+                }
+
                 foreach (var file in files)
                 {
                     if (file == null)

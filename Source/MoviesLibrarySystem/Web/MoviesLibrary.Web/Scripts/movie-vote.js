@@ -35,7 +35,7 @@
     }
 
     function voteClick(id, vote) {
-        $.post("/Users/Rating/AddRating", { movieId: id, ratingValue: vote },
+        $.post("/Users/Ratings/AddRating", { movieId: id, ratingValue: vote },
             function (data) {
                 var rating = data.Count;
                 var $vote = $('#vote-value');

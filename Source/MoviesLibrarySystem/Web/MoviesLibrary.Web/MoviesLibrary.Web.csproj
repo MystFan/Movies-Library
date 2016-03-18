@@ -177,9 +177,10 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminBaseController.cs" />
     <Compile Include="Areas\Administration\Controllers\MoviesController.cs" />
+    <Compile Include="Areas\Users\Controllers\ActorsController.cs" />
     <Compile Include="Areas\Users\Controllers\MoviesController.cs" />
     <Compile Include="Areas\Users\Controllers\UsersBaseController.cs" />
-    <Compile Include="Areas\Users\Controllers\RatingController.cs" />
+    <Compile Include="Areas\Users\Controllers\RatingsController.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -213,8 +214,9 @@
     <Content Include="Areas\Users\Views\Movies\Details.cshtml" />
     <Content Include="Areas\Users\Views\Movies\GetByYear.cshtml" />
     <Content Include="Areas\Users\Views\Shared\_MoviesSearchNoResult.cshtml" />
-    <Content Include="Areas\Users\Views\Movies\_MoviesListPartial.cshtml" />
+    <Content Include="Areas\Users\Views\Shared\_MoviesListPartial.cshtml" />
     <Content Include="Areas\Users\Views\Movies\All.cshtml" />
+    <Content Include="Areas\Users\Views\Actors\GetMovies.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

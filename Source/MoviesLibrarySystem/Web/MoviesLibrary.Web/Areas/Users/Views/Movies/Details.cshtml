@@ -39,7 +39,7 @@
                     </p>
                 }
                 <p id="vote-value">
-                    Rating: 
+                    Rating:
                     @if (Model.RatingsCount == 0)
                     {
                         <span>no rating</span>
@@ -85,14 +85,18 @@
                         <h3 class="text-info">Actors</h3>
                         @foreach (var actorName in Model.Actors)
                         {
-                            <div class="col-lg-6 col-md-6 col-xs-6"><p>@actorName</p></div>
-                        }
+                            <div class="col-lg-6 col-md-6 col-xs-6">
+                                <p>
+                                    <a href="/Users/Actors/GetMovies/@actorName" alt="@actorName">@actorName</a>
+                                </p>
+                            </div>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 @section scripts{
     <script type="text/javascript" src="~/Scripts/movie-vote.js"></script>    
