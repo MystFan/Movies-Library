@@ -22,7 +22,6 @@
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public ActionResult All(string title, int? genreType, int page = 1)
         {
             var moviesResult = this.moviesService

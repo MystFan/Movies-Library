@@ -4,7 +4,6 @@
 
     using MoviesLibrary.Web.Controllers;
 
-    [Authorize]
     public class UsersBaseController : BaseController
     {
     }
