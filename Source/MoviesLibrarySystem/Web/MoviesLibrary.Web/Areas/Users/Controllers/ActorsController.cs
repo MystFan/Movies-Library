@@ -18,6 +18,7 @@
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult GetMovies(string actorName)
         {
             if (actorName == null)

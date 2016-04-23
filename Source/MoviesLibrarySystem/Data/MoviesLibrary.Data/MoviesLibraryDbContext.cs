@@ -23,6 +23,10 @@
 
         public virtual IDbSet<Rating> Ratings { get; set; }
 
+        public virtual IDbSet<Article> Articles { get; set; }
+
+        public virtual IDbSet<Comment> Comments { get; set; }
+
         public static MoviesLibraryDbContext Create()
         {
             return new MoviesLibraryDbContext();

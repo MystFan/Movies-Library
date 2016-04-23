@@ -69,16 +69,22 @@
             </div>
         </div>
     </div>
+
     <div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 pull-left">
-                    <div class="well text-center">
-                        <div class="row vote-icon" data-action="up"><span class="glyphicon glyphicon-arrow-up"></span></div>
-                        <div class="row" id="movie-vote-value" data-id="@Model.Id">0</div>
-                        <div class="row vote-icon" data-action="down"><span class="glyphicon glyphicon-arrow-down"></span></div>
-                        <button id="btn-movie-vote" class="btn btn-success">Vote</button>
-                    </div>
+                    @if (this.User.Identity.IsAuthenticated)
+                    {
+                        <div class="well text-center">
+
+                            <div class="row vote-icon" data-action="up"><span class="glyphicon glyphicon-arrow-up"></span></div>
+
+                            <div class="row" id="movie-vote-value" data-id="@Model.Id">0</div>
+                            <div class="row vote-icon" data-action="down"><span class="glyphicon glyphicon-arrow-down"></span></div>
+                            <button id="btn-movie-vote" class="btn btn-success">Vote</button>
+                        </div>
+                    }
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
                     <div class="row">
@@ -90,14 +96,14 @@
                                     <a href="/Users/Actors/GetMovies/@actorName" alt="@actorName">@actorName</a>
                                 </p>
                             </div>
-                            }
-                        </div>
+                        }
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 @section scripts{
-    <script type="text/javascript" src="~/Scripts/movie-vote.js"></script>    
+    <script type="text/javascript" src="~/Scripts/movie-vote.js"></script>
 }

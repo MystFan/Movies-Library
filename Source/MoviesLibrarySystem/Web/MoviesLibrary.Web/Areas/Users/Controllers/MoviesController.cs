@@ -12,6 +12,7 @@
     using MoviesLibrary.Web.ViewModels.Movie;
     using MoviesLibrary.Web.Infrastructure.CustomFilters;
 
+    [AllowAnonymous]
     public class MoviesController : UsersBaseController
     {
         private IMoviesService moviesService;
@@ -24,7 +25,6 @@
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public ActionResult All(string title, int? genreType, int page = 1)
         {
             var moviesResult = this.moviesService
@@ -81,7 +81,6 @@
 
         [HttpGet]
         [AjaxOnly]
-        [AllowAnonymous]
         public ActionResult GetMovieDescription(string id)
         {
             var description = this.moviesService
