@@ -20,9 +20,9 @@
         }
 
         [Test]
-        public void WithoutFilesShouldReturnFalse()
+        public void WithoutFilesShouldReturnTrue()
         {
-            Assert.IsFalse(this.attribute.IsValid(new List<HttpPostedFileBase>() { null }));
+            Assert.IsTrue(this.attribute.IsValid(new List<HttpPostedFileBase>() { null }));
         }
 
         [TestCase(120000, 500000, ImageValidations.MinContentLength, ImageValidations.MaxContentLength)]

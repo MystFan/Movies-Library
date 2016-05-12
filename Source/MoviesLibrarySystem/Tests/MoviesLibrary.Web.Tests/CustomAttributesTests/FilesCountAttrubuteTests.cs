@@ -67,7 +67,9 @@
         }
 
         [Test]
-        public void WithValidFilesCountShouldReturnTrue()
+        [TestCase(1, 3)]
+        [TestCase(0, 3)]
+        public void WithValidFilesCountShouldReturnTrue(int min, int max)
         {
             var pngMock = new Mock<HttpPostedFileBase>();
             pngMock.Setup(i => i.FileName).Returns("image.png");
@@ -75,8 +77,8 @@
             var jpgMock = new Mock<HttpPostedFileBase>();
             jpgMock.Setup(i => i.FileName).Returns("image.jpg");
 
-            this.attribute.MinCount = 1;
-            this.attribute.MaxCount = 3;
+            this.attribute.MinCount = min;
+            this.attribute.MaxCount = max;
 
             Assert.IsTrue(this.attribute.IsValid(new List<HttpPostedFileBase>() { pngMock.Object, jpgMock.Object }));
         }

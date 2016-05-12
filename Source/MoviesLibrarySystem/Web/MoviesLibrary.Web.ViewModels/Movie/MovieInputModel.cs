@@ -6,10 +6,10 @@
     using System.Linq;
     using System.Web;
 
+    using MoviesLibrary.Common.Globals;
     using MoviesLibrary.Data.Common.Constants;
     using MoviesLibrary.Web.Infrastructure.CustomAttributes;
     using MoviesLibrary.Models;
-using MoviesLibrary.Common.Globals;
 
     public class MovieInputModel
     {

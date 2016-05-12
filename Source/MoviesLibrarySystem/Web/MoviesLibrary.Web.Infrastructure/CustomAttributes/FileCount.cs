@@ -26,12 +26,6 @@
 
             if (files != null)
             {
-                if (!files.Any(i => i != null))
-                {
-                    this.ErrorMessage = this.ErrorMessage != null ? this.ErrorMessage : DefaultErrorMessage;
-                    isValid = false;
-                }
-
                 int filesCount = files.Count(i => i != null);
 
                 if (filesCount < this.MinCount || filesCount > this.MaxCount)

@@ -7,7 +7,6 @@
 
     public class HttpFileContentLength : ValidationAttribute
     {
-        private const string DefaultErrorMessage = "File is too large!";
         private const string RangeErrorMessage = "The file size exceeds the limit allowed and cannot be saved! Size must be between {0} and {1} Kb!";
 
         public int MinSize { get; set; }
@@ -23,8 +22,6 @@
             {
                 if (!files.Any(i => i != null))
                 {
-                    this.ErrorMessage = this.ErrorMessage != null ? this.ErrorMessage : DefaultErrorMessage;
-                    isValid = false;
                     return isValid;
                 }
 

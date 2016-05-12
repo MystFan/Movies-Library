@@ -19,14 +19,14 @@
         }
 
         [Test]
-        public void WithoutExtensionsToCompareShouldReturnFalse()
+        public void WithoutExtensionsToCompareShouldReturnTrue()
         {
             this.attribute.FileExtensions = new string[] { };
 
             var pngMock = new Mock<HttpPostedFileBase>();
             pngMock.Setup(i => i.FileName).Returns("image.png");
 
-            Assert.IsFalse(this.attribute.IsValid(new List<HttpPostedFileBase>() { pngMock.Object }));
+            Assert.IsTrue(this.attribute.IsValid(new List<HttpPostedFileBase>() { pngMock.Object }));
         }
 
         [Test]
