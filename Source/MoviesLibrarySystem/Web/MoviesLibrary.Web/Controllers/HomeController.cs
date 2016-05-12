@@ -1,5 +1,6 @@
 ﻿namespace MoviesLibrary.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -7,7 +8,6 @@
     using MoviesLibrary.Common.Globals;
     using MoviesLibrary.Services.Data.Contracts;
     using MoviesLibrary.Web.ViewModels.Movie;
-    using System.Collections.Generic;
 
     public class HomeController : BaseController
     {

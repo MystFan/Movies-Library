@@ -4,7 +4,7 @@
 
     using MoviesLibrary.Services.Web.Contracts;
 
-    public class BaseController : Controller
+    public abstract class BaseController : Controller
     {
         public ICacheService Cache { get; set; }
     }

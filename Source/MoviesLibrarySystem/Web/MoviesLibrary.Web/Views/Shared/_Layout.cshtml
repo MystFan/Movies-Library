@@ -20,7 +20,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("All Movies", "All", "Movies", new { area = "Users" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Movies", "All", "Movies", new { area = "Users" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Articles", "All", "Article", new { area = string.Empty }, new { @class = "navbar-brand" })</li>
                     @if (this.User.IsInRole("Admin"))
                     {
                         <li>@Html.ActionLink("Add Movie", "Create", "Movies", new { area = "Administration" }, new { @class = "navbar-brand" })</li>

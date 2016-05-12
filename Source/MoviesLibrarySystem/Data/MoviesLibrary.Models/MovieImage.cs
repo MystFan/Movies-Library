@@ -8,11 +8,11 @@
     public class MovieImage : BaseModel<int>
     {
         [Required]
-        [StringLength(MovieImageValidations.NameMaxLength, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = MovieImageValidations.NameMinLength)]
+        [StringLength(ImageValidations.NameMaxLength, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = ImageValidations.NameMinLength)]
         public string OriginalName { get; set; }
 
         [Required]
-        [StringLength(MovieImageValidations.ExtensionMaxLength, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = MovieImageValidations.ExtensionMinLength)]
+        [StringLength(ImageValidations.ExtensionMaxLength, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = ImageValidations.ExtensionMinLength)]
         public string Extension { get; set; }
 
         [Required]

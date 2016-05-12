@@ -41,7 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActorsService.cs" />
+    <Compile Include="ArticlesService.cs" />
     <Compile Include="Contracts\IActorsService.cs" />
+    <Compile Include="Contracts\IArticlesService.cs" />
     <Compile Include="Contracts\IGenresService.cs" />
     <Compile Include="Contracts\IMovieImagesService.cs" />
     <Compile Include="Contracts\IMoviesService.cs" />

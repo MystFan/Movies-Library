@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MoviesLibrary.Web.ViewModels.Article.ArticleViewModel>
+
+@if (Model.Count() == 0)
+{
+    <h1>No articles yet!</h1>
+    <h3>Comming soon.</h3>
+}
+
+@foreach (var article in Model)
+{
+    <div>
+        <h3>@article.Title</h3>
+        <p>
+            @if (article.Content.Length > 300)
+            {
+                @(article.Content.Substring(0, 500) + "...")
+            }
+            else
+            {
+                @article.Content
+            }
+        </p>
+        <p class="lead">
+           
+        </p>
+        <ul class="list-inline">
+            <li>created on: @article.CreatedOn</li>
+            <li><a href="#"><i class="glyphicon glyphicon-comment"></i> @(article.Comments.Count()) Comments</a></li>
+        </ul>
+    </div>
+}

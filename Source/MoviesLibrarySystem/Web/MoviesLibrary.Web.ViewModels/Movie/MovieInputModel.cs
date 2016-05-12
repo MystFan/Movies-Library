@@ -33,7 +33,7 @@ using MoviesLibrary.Common.Globals;
 
         [FileExtension(FileExtensions = new string[] { ".png", ".jpg" })]
         [FileCount(MinCount = 1, MaxCount = 5)]
-        [HttpFileContentLength(MinSize = MovieImageValidations.MinContentLength, MaxSize = MovieImageValidations.MaxContentLength)]
+        [HttpFileContentLength(MinSize = ImageValidations.MinContentLength, MaxSize = ImageValidations.MaxContentLength)]
         public IEnumerable<HttpPostedFileBase> MovieImages { get; set; }
 
         [CollectionCount(MinCount = 1, MaxCount = 100)]
