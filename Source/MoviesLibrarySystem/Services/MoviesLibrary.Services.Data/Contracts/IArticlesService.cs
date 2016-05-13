@@ -12,5 +12,7 @@
         IQueryable<Article> Get(int page, string title);
 
         void Add(string title, string content, IEnumerable<string> paths);
+
+        Article GetById(int id);
     }
 }

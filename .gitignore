@@ -235,4 +235,7 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/Images/
+Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/Images/1
+Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/Images/2
+Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/Images/3
+Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/Images/4

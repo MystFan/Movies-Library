@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image:url("../Images/movie-background-wallpaper.jpg")
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -43,6 +44,10 @@ textarea {
 
 label{
     font-size: 1.4em;
+}
+
+.page-title{
+    color: #DF691A;
 }
 
 .vote-icon{

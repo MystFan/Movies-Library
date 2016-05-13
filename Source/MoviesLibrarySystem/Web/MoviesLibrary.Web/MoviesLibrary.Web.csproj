@@ -179,6 +179,7 @@
     <Compile Include="Areas\Administration\Controllers\ArticlesController.cs" />
     <Compile Include="Areas\Administration\Controllers\MoviesController.cs" />
     <Compile Include="Areas\Users\Controllers\ActorsController.cs" />
+    <Compile Include="Areas\Users\Controllers\ArticlesController.cs" />
     <Compile Include="Areas\Users\Controllers\MoviesController.cs" />
     <Compile Include="Areas\Users\Controllers\UsersBaseController.cs" />
     <Compile Include="Areas\Users\Controllers\RatingsController.cs" />
@@ -221,6 +222,7 @@
     <Content Include="Areas\Users\Views\Movies\All.cshtml" />
     <Content Include="Areas\Users\Views\Actors\GetMovies.cshtml" />
     <Content Include="Areas\Administration\Views\Articles\Create.cshtml" />
+    <Content Include="Areas\Users\Views\Articles\Details.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

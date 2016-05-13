@@ -39,5 +39,12 @@
             this.articles.Add(article);
             this.articles.SaveChanges();
         }
+
+
+        public Article GetById(int id)
+        {
+            var article = this.articles.GetById(id);
+            return article;
+        }
     }
 }

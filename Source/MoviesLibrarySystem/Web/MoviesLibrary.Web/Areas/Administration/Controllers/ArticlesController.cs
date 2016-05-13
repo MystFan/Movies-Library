@@ -33,7 +33,7 @@
             }
 
             var articlesCount = this.articlesService.GetAll().Count();
-            var paths = this.SaveImages(model.Images, "~/Images", articlesCount);
+            var paths = this.SaveImages(model.Images, "/Images", articlesCount);
             this.articlesService.Add(model.Title, model.Content, paths);
 
             return this.RedirectToAction("Index", "Home", new { Area = string.Empty });
@@ -60,7 +60,7 @@
                     string path = Path.Combine(directory, imageName);
 
                     file.SaveAs(path);
-                    paths.Add(path);
+                    paths.Add(rootPath + "/" + directoryName + "/" + file.FileName);
                 }
             }
 

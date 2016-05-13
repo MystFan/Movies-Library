@@ -9,13 +9,15 @@
 
     public class ArticleViewModel : IMapFrom<MoviesLibrary.Models.Article>, IHaveCustomMappings
     {
+        public int Id { get; set; }
+
         public string Title { get; set; }
 
         public string Content { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
-        public IEnumerable<string> Images { get; set; }
+        public IList<string> Images { get; set; }
 
         public IEnumerable<string> Comments { get; set; }
 

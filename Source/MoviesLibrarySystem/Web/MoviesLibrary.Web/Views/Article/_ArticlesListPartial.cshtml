@@ -20,12 +20,14 @@
                 @article.Content
             }
         </p>
-        <p class="lead">
-           
+        <p class="lead">   
         </p>
         <ul class="list-inline">
-            <li>created on: @article.CreatedOn</li>
+            <li>created on: @article.CreatedOn.ToString("dd/MM/yyyy")</li>
             <li><a href="#"><i class="glyphicon glyphicon-comment"></i> @(article.Comments.Count()) Comments</a></li>
         </ul>
+        <section>
+            @Html.ActionLink("More details", "Details", "Articles", new { area = "Users", id = article.Id }, new { @class = "btn btn-success", title = "Movie details" })
+        </section>
     </div>
 }
