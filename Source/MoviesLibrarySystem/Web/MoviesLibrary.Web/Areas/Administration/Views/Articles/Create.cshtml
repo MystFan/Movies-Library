@@ -32,7 +32,7 @@
 
         <div class="form-group">
             @Html.Label("Images", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10" id="add-images-container">
+            <div class="col-md-8" id="add-images-container">
                 <input type="file" name="images" class="form-control" />
                 @Html.ValidationMessageFor(model => model.Images, string.Empty, new { @class = "text-danger" })
             </div>

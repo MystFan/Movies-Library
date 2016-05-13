@@ -32,10 +32,15 @@
 
                 foreach (var file in files)
                 {
+                    if (file == null)
+                    {
+                        continue;
+                    }
+
                     if (file.ContentLength < this.MinSize || file.ContentLength > this.MaxSize)
                     {
                         isValid = false;
-                        this.ErrorMessage = this.ErrorMessage != null ? this.ErrorMessage : string.Format(RangeErrorMessage, this.MinSize, this.MaxSize);
+                        this.ErrorMessage = this.ErrorMessage != null ? this.ErrorMessage : string.Format(RangeErrorMessage, this.MinSize / 1000, this.MaxSize/ 1000);
                         return isValid;
                     }
                 }

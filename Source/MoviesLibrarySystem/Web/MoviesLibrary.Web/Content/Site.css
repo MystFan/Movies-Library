@@ -41,6 +41,10 @@ textarea {
     }
 }
 
+label{
+    font-size: 1.4em;
+}
+
 .vote-icon{
     cursor: pointer;
 }

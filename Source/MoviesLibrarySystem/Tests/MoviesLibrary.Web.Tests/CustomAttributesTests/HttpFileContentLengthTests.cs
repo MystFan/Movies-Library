@@ -22,7 +22,7 @@
         [Test]
         public void WithoutFilesShouldReturnTrue()
         {
-            Assert.IsTrue(this.attribute.IsValid(new List<HttpPostedFileBase>() { null }));
+            Assert.IsTrue(this.attribute.IsValid(new List<HttpPostedFileBase>() { null, null }));
         }
 
         [TestCase(120000, 500000, ImageValidations.MinContentLength, ImageValidations.MaxContentLength)]
@@ -37,11 +37,11 @@
             this.attribute.MinSize = minSize;
             this.attribute.MaxSize = maxSize;
 
-            Assert.IsTrue(this.attribute.IsValid(new List<HttpPostedFileBase>() { pngMock.Object, jpgMock.Object }));
+            Assert.IsTrue(this.attribute.IsValid(new List<HttpPostedFileBase>() { pngMock.Object, jpgMock.Object, null }));
         }
 
-        [TestCase(99999)]
-        [TestCase(500002)]
+        [TestCase(ImageValidations.MinContentLength - 1)]
+        [TestCase(ImageValidations.MaxContentLength + 1)]
         public void WithInvalidFileSizeFilesCountShouldReturnFalse(int size)
         {
             var pngMock = new Mock<HttpPostedFileBase>();
@@ -52,7 +52,7 @@
             this.attribute.MinSize = ImageValidations.MinContentLength;
             this.attribute.MaxSize = ImageValidations.MaxContentLength;
 
-            Assert.IsFalse(this.attribute.IsValid(new List<HttpPostedFileBase>() { pngMock.Object, jpgMock.Object }));
+            Assert.IsFalse(this.attribute.IsValid(new List<HttpPostedFileBase>() { pngMock.Object, jpgMock.Object, null }));
         }
     }
 }

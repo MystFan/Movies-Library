@@ -16,6 +16,6 @@
 
         public const int MaxContentLength = 500000;
 
-        public const int MinContentLength = 100000;
+        public const int MinContentLength = 50000;
     }
 }

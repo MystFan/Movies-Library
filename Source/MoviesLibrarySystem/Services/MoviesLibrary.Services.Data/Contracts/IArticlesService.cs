@@ -1,5 +1,6 @@
 ﻿namespace MoviesLibrary.Services.Data.Contracts
 {
+    using System.Collections.Generic;
     using System.Linq;
 
     using MoviesLibrary.Models;
@@ -9,5 +10,7 @@
         IQueryable<Article> GetAll();
 
         IQueryable<Article> Get(int page, string title);
+
+        void Add(string title, string content, IEnumerable<string> paths);
     }
 }

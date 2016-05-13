@@ -14,7 +14,7 @@
         public string Title { get; set; }
 
         [Required]
-        [StringLength(ArticleValidations.ContentMaxLength, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = ArticleValidations.ContentMaxLength)]
+        [StringLength(ArticleValidations.ContentMaxLength, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = ArticleValidations.ContentMinLength)]
         public string Content { get; set; }
 
         [FileExtension(FileExtensions = new string[] { ".png", ".jpg" })]
