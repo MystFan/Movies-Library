@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,8 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ICacheService.cs" />
+    <Compile Include="Contracts\IImageEditorService.cs" />
     <Compile Include="HttpCacheService.cs" />
+    <Compile Include="ImageEditorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\MoviesLibrary.Common\MoviesLibrary.Common.csproj">
+      <Project>{c1e9bfe2-9110-4994-b80e-7560d5e82282}</Project>
+      <Name>MoviesLibrary.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

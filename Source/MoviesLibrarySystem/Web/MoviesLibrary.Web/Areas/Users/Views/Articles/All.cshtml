@@ -1,0 +1,85 @@
+﻿@model MoviesLibrary.Web.ViewModels.Article.ArticleListViewModel
+@{
+    ViewBag.Title = "All";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        @if (Model.Articles.Count() == 0)
+        {
+            <h1>No articles yet!</h1>
+            <h3>Comming soon.</h3>
+        }
+
+        @foreach (var article in Model.Articles)
+        {
+            <div>
+                <h3>@article.Title</h3>
+                <p>
+                    @if (article.Content.Length > 300)
+                    {
+                        @(article.Content.Substring(0, 300) + "...")
+                    }
+                    else
+                    {
+                        @article.Content
+                    }
+                </p>
+                <p class="lead">
+                </p>
+                <ul class="list-inline">
+                    <li>created on: @article.CreatedOn.ToString("dd/MM/yyyy")</li>
+                    <li><a href="#"><i class="glyphicon glyphicon-comment"></i> @(article.Comments.Count()) Comments</a></li>
+                </ul>
+                <section>
+                    @Html.ActionLink("Read More", "Details", "Articles", new { area = "Users", id = article.Id }, new { @class = "btn btn-success", title = "Movie details" })
+                </section>
+            </div>
+            <hr />
+        }
+    </div>
+</div>
+<div class="row">
+    <nav class="text-center">
+        <ul class="pagination">
+            @if (Model.CurrentPage > 1)
+            {
+                <li>
+                    <a href="/Users/Articles/All?page=@(Model.CurrentPage - 1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            }
+
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                var className = string.Empty;
+                if (i == Model.CurrentPage)
+                {
+                    className = "active";
+                }
+                <li class="@className"><a href="/Users/Articles/All?page=@i">@i</a></li>
+            }
+
+            <li>
+                @if (Model.CurrentPage < Model.TotalPages)
+                {
+                    <a href="/Users/Articles/All?page=@(Model.CurrentPage + 1)" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                }
+            </li>
+        </ul>
+    </nav>
+    <div class="pull-right">
+        <button class="btn btn-success" id="btn-scroll">
+            <span class="glyphicon glyphicon-arrow-up"></span>
+        </button>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/scrollToTop.js"></script>
+}
+

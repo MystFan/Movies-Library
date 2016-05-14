@@ -6,6 +6,7 @@
     using MoviesLibrary.Data.Repositories;
     using MoviesLibrary.Models;
     using MoviesLibrary.Services.Data.Contracts;
+    using MoviesLibrary.Common.Globals;
 
     public class ArticlesService : IArticlesService
     {
@@ -23,7 +24,11 @@
 
         public IQueryable<Article> Get(int page, string title)
         {
-            var articles = this.GetAll();
+            var articles = this.GetAll()
+                    .OrderByDescending(m => m.CreatedOn)
+                    .Skip((page - 1) * ArticleConstants.ArticlesListDefaultPageSize)
+                    .Take(ArticleConstants.ArticlesListDefaultPageSize);
+
             return articles;
         }
 
@@ -45,6 +50,18 @@
         {
             var article = this.articles.GetById(id);
             return article;
+        }
+
+
+        public int GetLastId()
+        {
+            int allArticlesCount = this.GetAll().Count();
+            int lastId = this.GetAll()
+                .OrderBy(a => a.Id)
+                .Skip(allArticlesCount - 1)
+                .FirstOrDefault().Id;
+
+            return lastId;
         }
     }
 }

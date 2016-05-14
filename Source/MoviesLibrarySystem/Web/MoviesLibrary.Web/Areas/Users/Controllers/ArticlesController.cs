@@ -1,10 +1,15 @@
 ﻿namespace MoviesLibrary.Web.Areas.Users.Controllers
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
 
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using MoviesLibrary.Services.Data.Contracts;
     using MoviesLibrary.Web.ViewModels.Article;
+    using MoviesLibrary.Models;
+    using MoviesLibrary.Common.Globals;
 
     public class ArticlesController : UsersBaseController
     {
@@ -19,18 +24,30 @@
         public ActionResult Details(int id)
         {
             var article = this.articlesService.GetById(id);
+            var articleViewModel = Mapper.Map<Article, ArticleViewModel>(article);
 
-            ArticleViewModel model = new ArticleViewModel()
+            return View(articleViewModel);
+        }
+
+        [AllowAnonymous]
+        public ActionResult All(string title, int page = 1)
+        {
+            var articles = this.articlesService
+               .Get(page, title)
+               .ProjectTo<ArticleViewModel>()
+               .ToList();
+
+            int totalArticles = this.articlesService.GetAll().Count();
+            int totalPages = (int)Math.Ceiling(totalArticles / (decimal)ArticleConstants.ArticlesListDefaultPageSize);
+
+            ArticleListViewModel viewModel = new ArticleListViewModel()
             {
-                Title = article.Title,
-                Content = article.Content,
-                CreatedOn = article.CreatedOn,
-                Id = article.Id,
-                Comments = article.Comments.Select(c => c.Content),
-                Images = article.Images.Select(a => a.Url).ToList()
+                CurrentPage = page,
+                TotalPages = totalPages,
+                Articles = articles
             };
 
-            return View(model);
+            return this.View(viewModel);
         }
     }
 }

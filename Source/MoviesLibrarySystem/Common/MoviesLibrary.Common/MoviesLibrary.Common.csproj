@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Globals\ApplicationConstants.cs" />
+    <Compile Include="Globals\ArticleConstants.cs" />
     <Compile Include="Globals\HomePageConstants.cs" />
+    <Compile Include="Globals\ImageConstants.cs" />
     <Compile Include="Globals\MovieConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\IdentifierProvider.cs" />

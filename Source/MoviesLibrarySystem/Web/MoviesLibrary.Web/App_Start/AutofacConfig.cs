@@ -53,6 +53,10 @@
                 .As<ICacheService>()
                 .InstancePerRequest();
 
+            builder.Register(x => new ImageEditorService())
+                .As<IImageEditorService>()
+                .InstancePerRequest();
+
             var servicesAssembly = Assembly.GetAssembly(typeof(IService));
             builder.RegisterAssemblyTypes(servicesAssembly).AsImplementedInterfaces();
 
