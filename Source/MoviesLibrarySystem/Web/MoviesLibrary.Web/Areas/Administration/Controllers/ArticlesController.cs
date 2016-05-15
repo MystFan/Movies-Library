@@ -40,7 +40,7 @@
             var paths = this.SaveImages(model.Images, "/Images", lastId);
             this.articlesService.Add(model.Title, model.Content, paths);
 
-            return this.RedirectToAction("Index", "Home", new { Area = string.Empty });
+            return this.RedirectToAction("All", "Articles", new { Area = "Users" });
         }
 
         private IEnumerable<string> SaveImages(IEnumerable<HttpPostedFileBase> files, string rootPath, int count)
@@ -54,7 +54,7 @@
                 {
                     Image resizedImage = this.imageEditorService.ResizeImageFromStream(file.InputStream);
 
-                    string directory = Path.Combine(Server.MapPath(rootPath), directoryName);
+                    string directory = Path.Combine(Server.MapPath("~" + rootPath), directoryName);
                     bool exists = Directory.Exists(directory);
 
                     if (!exists)
