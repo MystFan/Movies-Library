@@ -198,6 +198,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.theme.min.css" />
+    <Content Include="Content\Images\movie-background-wallpaper.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -276,7 +277,7 @@
     <Content Include="Areas\Users\Views\Articles\All.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\Images\" />
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Users\Models\" />
     <Folder Include="Areas\Users\Views\Vote\" />

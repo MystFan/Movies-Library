@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-image:url("/Images/movie-background-wallpaper.jpg");
+    background-image:url("/Content/Images/movie-background-wallpaper.jpg");
     background-size:cover;
 }
 
@@ -41,6 +41,12 @@ textarea {
     .img-responsive {
         width: 300px;
     }
+}
+
+#btn-scroll-container{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
 }
 
 label{

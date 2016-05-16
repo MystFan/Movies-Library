@@ -19,12 +19,12 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="@Model.Images.FirstOrDefault()" />
+                    <img src="@Url.Action("GetArticleImage", "Articles", new { Area = "Users", id = Model.Images.FirstOrDefault().Id }, null)" />
                 </div>
                 @for (int i = 1; i < Model.Images.Count; i++)
                 {
                     <div class="item">
-                        <img src="@Model.Images[i]" />
+                        <img src="@Url.Action("GetArticleImage", "Articles", new { Area = "Users", id = Model.Images[i].Id }, null)" />
                     </div>
                 }
             </div>
@@ -39,8 +39,11 @@
         </div>
     }
 </div>
+<br />
 <div class="row">
     <article>
-        @MvcHtmlString.Create(Model.Content.Replace("\\n", "<br /><br/ >"))
+        <p>
+            @MvcHtmlString.Create(Model.Content.Replace("\\n", "<br /><br/ >"))
+        </p>
     </article>
 </div>

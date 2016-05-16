@@ -37,7 +37,7 @@
             }
 
             var lastId = this.articlesService.GetLastId();
-            var paths = this.SaveImages(model.Images, "/Images", lastId);
+            var paths = this.SaveImages(model.Images, "/App_Data/Images", lastId);
             this.articlesService.Add(model.Title, model.Content, paths);
 
             return this.RedirectToAction("All", "Articles", new { Area = "Users" });
@@ -46,22 +46,37 @@
         private IEnumerable<string> SaveImages(IEnumerable<HttpPostedFileBase> files, string rootPath, int count)
         {
             List<string> paths = new List<string>();
-            count++;
-            string directoryName = ((count % 1000000)).ToString();
+            int foldersCount = ++count;
+            string directoryName = ((foldersCount % 1000000)).ToString();
+            string directory = Path.Combine(Server.MapPath("~" + rootPath), directoryName);
+            bool exists = Directory.Exists(directory);
+
+            if (files.Any(f => f != null))
+            {
+                while (exists)
+                {
+                    directoryName = ((++foldersCount % 1000000)).ToString();
+                    directory = Path.Combine(Server.MapPath("~" + rootPath), directoryName);
+                    exists = Directory.Exists(directory);
+                }
+
+                if (!exists)
+                {
+                    Directory.CreateDirectory(directory);
+                }
+            }
+            else
+            {
+                return paths;
+            }
+
+
             foreach (var file in files)
             {
                 if (file != null)
                 {
                     Image resizedImage = this.imageEditorService.ResizeImageFromStream(file.InputStream);
-
-                    string directory = Path.Combine(Server.MapPath("~" + rootPath), directoryName);
-                    bool exists = Directory.Exists(directory);
-
-                    if (!exists)
-                    {
-                        Directory.CreateDirectory(directory);
-                    }
-
+                    
                     string imageName = Path.GetFileName(file.FileName);
                     string path = Path.Combine(directory, imageName);
 

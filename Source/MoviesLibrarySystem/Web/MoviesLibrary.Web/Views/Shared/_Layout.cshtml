@@ -60,9 +60,17 @@
             <p>&copy; @DateTime.Now.Year - @MoviesLibrary.Common.Globals.ApplicationConstants.Name</p>
         </footer>
     </div>
-
+    <div id="btn-scroll-container">
+        <button class="btn btn-success" id="btn-scroll">
+            <span class="glyphicon glyphicon-arrow-up"></span>
+        </button>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/scrollToTop.js"></script>
+    @section scripts{
+        <script src="~/Scripts/scrollToTop.js"></script>
+    }
     @RenderSection("scripts", required: false)
 </body>
 

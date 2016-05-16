@@ -1,6 +1,8 @@
 ﻿namespace MoviesLibrary.Web.Areas.Users.Controllers
 {
     using System;
+    using System.Drawing;
+    using System.IO;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -14,10 +16,12 @@
     public class ArticlesController : UsersBaseController
     {
         private IArticlesService articlesService;
+        private IArticleImagesService articleImagesService;
 
-        public ArticlesController(IArticlesService articlesService)
+        public ArticlesController(IArticlesService articlesService, IArticleImagesService articleImagesService)
         {
             this.articlesService = articlesService;
+            this.articleImagesService = articleImagesService;
         }
 
         [AllowAnonymous]
@@ -48,6 +52,20 @@
             };
 
             return this.View(viewModel);
+        }
+
+        public ActionResult GetArticleImage(int id)
+        {
+            var articleImg = this.articleImagesService.GetById(id);
+            Image img = Image.FromFile(Server.MapPath("~" + articleImg.Url));
+            byte[] arr;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                arr = ms.ToArray();
+            }
+
+            return new FileContentResult(arr, "image/" + Path.GetExtension(articleImg.Url));
         }
     }
 }
