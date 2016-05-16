@@ -281,7 +281,6 @@
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Users\Models\" />
     <Folder Include="Areas\Users\Views\Vote\" />
-    <Folder Include="Images\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

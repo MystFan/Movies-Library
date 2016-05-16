@@ -1,14 +1,11 @@
-﻿using MoviesLibrary.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MoviesLibrary.Services.Data.Contracts
+﻿namespace MoviesLibrary.Services.Data.Contracts
 {
+    using MoviesLibrary.Models;
+
     public interface IArticleImagesService : IService
     {
         ArticleImage GetById(int id);
+
+        ArticleImage GetById(string viewId);
     }
 }

@@ -1,12 +1,17 @@
 ﻿namespace MoviesLibrary.Services.Data
 {
     using System.Collections.Generic;
+    using System.Drawing;
+    using System.Drawing.Imaging;
+    using System.IO;
     using System.Linq;
+    using System.Web;
 
+    using MoviesLibrary.Common.Globals;
     using MoviesLibrary.Data.Repositories;
     using MoviesLibrary.Models;
     using MoviesLibrary.Services.Data.Contracts;
-    using MoviesLibrary.Common.Globals;
+    using MoviesLibrary.Services.Web;
 
     public class ArticlesService : IArticlesService
     {
@@ -32,19 +37,18 @@
             return articles;
         }
 
-        public void Add(string title, string content, IEnumerable<string> paths)
+        public void Add(string title, string content, IEnumerable<HttpPostedFileBase> images)
         {
             var article = new Article()
             {
                 Title = title,
                 Content = content,
-                Images = paths.Select(imgPath => new ArticleImage() { Url = imgPath }).ToList()
+                Images = this.HttpFileToArticleImage(images)
             };
 
             this.articles.Add(article);
             this.articles.SaveChanges();
         }
-
 
         public Article GetById(int id)
         {
@@ -52,16 +56,46 @@
             return article;
         }
 
-
-        public int GetLastId()
+        private List<ArticleImage> HttpFileToArticleImage(IEnumerable<HttpPostedFileBase> images)
         {
-            int allArticlesCount = this.GetAll().Count();
-            int lastId = this.GetAll()
-                .OrderBy(a => a.Id)
-                .Skip(allArticlesCount - 1)
-                .FirstOrDefault().Id;
+            List<ArticleImage> filesDataResult = new List<ArticleImage>();
 
-            return lastId;
+            foreach (var image in images)
+            {
+                if (image == null)
+                {
+                    continue;
+                }
+
+                ArticleImage articleImage = new ArticleImage();
+                articleImage.OriginalName = image.FileName;
+                articleImage.Extension = Path.GetExtension(image.FileName);
+
+                ImageEditorService editor = new ImageEditorService();
+                var resizedImage = editor.ResizeImageFromStream(image.InputStream);
+                ImageFormat format = null;
+                switch (articleImage.Extension)
+                {
+                    case ".jpg": format = ImageFormat.Jpeg; break;
+                    case ".png": format = ImageFormat.Png; break;
+                    default:
+                        break;
+                }
+
+                articleImage.Content = this.ImageToByteArray(resizedImage, format);
+                filesDataResult.Add(articleImage);
+            }
+
+            return filesDataResult;
+        }
+
+        private byte[] ImageToByteArray(Image image, ImageFormat format)
+        {
+            using (var memoryStrem = new MemoryStream())
+            {
+                image.Save(memoryStrem, format);
+                return memoryStrem.ToArray();
+            }
         }
     }
 }

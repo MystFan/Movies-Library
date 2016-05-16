@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Web;
 
     using MoviesLibrary.Models;
 
@@ -11,10 +12,8 @@
 
         IQueryable<Article> Get(int page, string title);
 
-        void Add(string title, string content, IEnumerable<string> paths);
+        void Add(string title, string content, IEnumerable<HttpPostedFileBase> images);
 
         Article GetById(int id);
-
-        int GetLastId();
     }
 }

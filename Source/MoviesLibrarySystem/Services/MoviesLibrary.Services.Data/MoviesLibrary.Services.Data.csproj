@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,6 +53,7 @@
     <Compile Include="Contracts\IRatingService.cs" />
     <Compile Include="Contracts\IService{T}.cs" />
     <Compile Include="GenresService.cs" />
+    <Compile Include="ImageConvertorService.cs" />
     <Compile Include="MovieImagesService.cs" />
     <Compile Include="MoviesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,6 +75,10 @@
     <ProjectReference Include="..\..\Data\MoviesLibrary.Models\MoviesLibrary.Models.csproj">
       <Project>{f29dd2f6-6e0d-45fb-97a4-3934db4daf1d}</Project>
       <Name>MoviesLibrary.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MoviesLibrary.Services.Web\MoviesLibrary.Services.Web.csproj">
+      <Project>{d2e4ba28-d405-4e43-a0a0-8ad53d2528c0}</Project>
+      <Name>MoviesLibrary.Services.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

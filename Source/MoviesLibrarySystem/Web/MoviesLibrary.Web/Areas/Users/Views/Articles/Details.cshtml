@@ -19,12 +19,12 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="@Url.Action("GetArticleImage", "Articles", new { Area = "Users", id = Model.Images.FirstOrDefault().Id }, null)" />
+                    <img src="@Url.Action("GetArticleImage", "Articles", new { Area = "Users", id = Model.Images.FirstOrDefault().ViewId }, null)" />
                 </div>
                 @for (int i = 1; i < Model.Images.Count; i++)
                 {
                     <div class="item">
-                        <img src="@Url.Action("GetArticleImage", "Articles", new { Area = "Users", id = Model.Images[i].Id }, null)" />
+                        <img src="@Url.Action("GetArticleImage", "Articles", new { Area = "Users", id = Model.Images[i].ViewId }, null)" />
                     </div>
                 }
             </div>

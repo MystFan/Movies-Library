@@ -1,17 +1,15 @@
 ﻿namespace MoviesLibrary.Web.Areas.Users.Controllers
 {
     using System;
-    using System.Drawing;
-    using System.IO;
     using System.Linq;
     using System.Web.Mvc;
 
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
+    using MoviesLibrary.Common.Globals;
+    using MoviesLibrary.Models;
     using MoviesLibrary.Services.Data.Contracts;
     using MoviesLibrary.Web.ViewModels.Article;
-    using MoviesLibrary.Models;
-    using MoviesLibrary.Common.Globals;
 
     public class ArticlesController : UsersBaseController
     {
@@ -54,18 +52,13 @@
             return this.View(viewModel);
         }
 
-        public ActionResult GetArticleImage(int id)
+        [AllowAnonymous]
+        public ActionResult GetArticleImage(string id)
         {
             var articleImg = this.articleImagesService.GetById(id);
-            Image img = Image.FromFile(Server.MapPath("~" + articleImg.Url));
-            byte[] arr;
-            using (MemoryStream ms = new MemoryStream())
-            {
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                arr = ms.ToArray();
-            }
+            string imgExtension = articleImg.Extension;
 
-            return new FileContentResult(arr, "image/" + Path.GetExtension(articleImg.Url));
+            return new FileContentResult(articleImg.Content, "image/" + imgExtension);
         }
     }
 }

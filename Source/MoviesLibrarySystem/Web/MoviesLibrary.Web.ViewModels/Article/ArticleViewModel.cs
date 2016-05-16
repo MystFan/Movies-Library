@@ -25,7 +25,7 @@
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<MoviesLibrary.Models.Article, ArticleViewModel>(this.GetType().Name)
-                .ForMember(av => av.Images, opt => opt.MapFrom(a => a.Images.Select(i => new ArticleImageViewModel() { Id = i.Id, Url = i.Url })));
+                .ForMember(av => av.Images, opt => opt.MapFrom(a => a.Images.Select(i => new ArticleImageViewModel() { Id = i.Id })));
 
             configuration.CreateMap<MoviesLibrary.Models.Article, ArticleViewModel>(this.GetType().Name)
                 .ForMember(av => av.Comments, opt => opt.MapFrom(a => a.Comments.Select(c => c.Content)));

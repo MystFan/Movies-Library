@@ -1,14 +1,10 @@
-﻿using MoviesLibrary.Data.Common;
-using MoviesLibrary.Data.Common.Constants;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MoviesLibrary.Models
+﻿namespace MoviesLibrary.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
+    using MoviesLibrary.Data.Common;
+    using MoviesLibrary.Data.Common.Constants;
+
     public class Comment : BaseModel<int>
     {
         [Required]

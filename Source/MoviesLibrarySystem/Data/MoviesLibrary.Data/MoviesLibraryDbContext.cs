@@ -17,6 +17,8 @@
 
         public virtual IDbSet<Movie> Movies { get; set; }
 
+        public virtual IDbSet<MovieImage> MovieImages { get; set; }
+
         public virtual IDbSet<Actor> Actors { get; set; }
 
         public virtual IDbSet<Director> Directors { get; set; }
@@ -24,6 +26,8 @@
         public virtual IDbSet<Rating> Ratings { get; set; }
 
         public virtual IDbSet<Article> Articles { get; set; }
+
+        public virtual IDbSet<ArticleImage> ArticleImages { get; set; }
 
         public virtual IDbSet<Comment> Comments { get; set; }
 

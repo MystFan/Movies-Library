@@ -234,16 +234,3 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
-
-Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/App_Data/Images/1
-Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/App_Data/Images/2
-Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/App_Data/Images/3
-Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/App_Data/Images/4
-Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/App_Data/Images/5
-Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/App_Data/Images/6
-Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/App_Data/Images/7
-Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/App_Data/Images/9
-Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/App_Data/Images/10
-Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/App_Data/Images/11
-Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/App_Data/Images/12
-Source/MoviesLibrarySystem/Web/MoviesLibrary.Web/App_Data/Images/13

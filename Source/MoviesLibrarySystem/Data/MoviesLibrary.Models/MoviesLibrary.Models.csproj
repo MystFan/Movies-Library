@@ -64,6 +64,7 @@
     <Compile Include="Genre.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="MovieImage.cs" />
+    <Compile Include="MovieLibraryImage.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rating.cs" />
