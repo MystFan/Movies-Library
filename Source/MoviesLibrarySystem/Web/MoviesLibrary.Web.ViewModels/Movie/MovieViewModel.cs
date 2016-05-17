@@ -30,6 +30,8 @@
 
         public int Year { get; set; }
 
+        public string VideoId { get; set; }
+
         public int Rating { get; set; }
 
         public int RatingsCount { get; set; }

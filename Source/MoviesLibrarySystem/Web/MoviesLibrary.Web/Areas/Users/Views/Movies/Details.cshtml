@@ -8,8 +8,28 @@
     <p>
         <h1>@Model.Title</h1>
     </p>
-    <div>
-        <img src="@Url.Action("GetImage", "Home", new { area = string.Empty, id = Model.Images.FirstOrDefault(i => i.IsCover).ViewId })" class="img-responsive" />
+    <div class="row">
+        <div class="col-lg-offset-1 col-md-offset-1 col-lg-6 col-md-6">
+            <img src="@Url.Action("GetImage", "Home", new { area = string.Empty, id = Model.Images.FirstOrDefault(i => i.IsCover).ViewId })" class="img-responsive" />
+        </div>
+        <div class="col-lg-5 col-md-5">
+            @if (Model.VideoId != null)
+            {
+                <div class="videoWrapper">
+                    <object>
+                        <param name="movie" value="http://www.youtube.com/v/@Model.VideoId" />
+                        <param name="allowFullScreen" value="true" />
+                        <param name="allowscriptaccess" value="always" />
+                        <param name="wmode" value="opaque" />
+                        <embed src="http://www.youtube.com/v/@Model.VideoId"
+                               type="application/x-shockwave-flash"
+                               allowscriptaccess="always" allowfullscreen="true"
+                               wmode="opaque">
+                        </embed>
+                    </object>
+                </div>
+            }
+        </div>
     </div>
 </header>
 <section id="details">

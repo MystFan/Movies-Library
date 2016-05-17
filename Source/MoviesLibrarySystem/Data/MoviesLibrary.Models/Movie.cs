@@ -36,6 +36,9 @@
         [Range(MovieValidations.MinYear, MovieValidations.MaxYear)]
         public int Year { get; set; }
 
+        [MaxLength(MovieValidations.YouTubeVideoIdMaxLength)]
+        public string VideoId { get; set; }
+
         public virtual ICollection<Rating> Ratings
         {
             get { return this.ratings; }

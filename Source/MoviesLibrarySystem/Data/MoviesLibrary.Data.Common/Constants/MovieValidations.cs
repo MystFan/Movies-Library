@@ -13,5 +13,7 @@
         public const int DescriptionMaxLength = 2000;
 
         public const int DescriptionMinLength = 100;
+
+        public const int YouTubeVideoIdMaxLength = 100;
     }
 }

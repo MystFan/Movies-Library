@@ -28,6 +28,10 @@
         [Range(MovieValidations.MinYear, MovieValidations.MaxYear)]
         public int Year { get; set; }
 
+        [Display(Name = "YouTube Video Id")]
+        [MaxLength(MovieValidations.YouTubeVideoIdMaxLength, ErrorMessage = "YouTube video id cannot be longer than 100 characters")]
+        public string YouTubeVideoId { get; set; }
+
         [Required]
         public int PosterIndex { get; set; }
 

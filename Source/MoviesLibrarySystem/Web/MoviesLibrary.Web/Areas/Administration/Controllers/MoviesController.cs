@@ -46,6 +46,7 @@
                     model.Title,
                     model.Description,
                     model.Year,
+                    model.YouTubeVideoId,
                     model.GenreType,
                     model.PosterIndex,
                     model.Actors,

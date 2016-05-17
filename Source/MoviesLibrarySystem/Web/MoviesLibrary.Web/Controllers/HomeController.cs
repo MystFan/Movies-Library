@@ -8,6 +8,8 @@
     using MoviesLibrary.Common.Globals;
     using MoviesLibrary.Services.Data.Contracts;
     using MoviesLibrary.Web.ViewModels.Movie;
+    using MoviesLibrary.Services.Web;
+    using MoviesLibrary.Services.Web.Helpers;
 
     public class HomeController : BaseController
     {

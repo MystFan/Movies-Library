@@ -42,7 +42,7 @@
             return movies;
         }
 
-        public void Add(string title, string description, int year, int genreType, int coverIndex, IEnumerable<string> actorNames, IEnumerable<string> directorNames, IEnumerable<HttpPostedFileBase> images)
+        public void Add(string title, string description, int year, string videoId, int genreType, int coverIndex, IEnumerable<string> actorNames, IEnumerable<string> directorNames, IEnumerable<HttpPostedFileBase> images)
         {
             var movieImages = this.HttpFileToMovieImage(images);
             movieImages[coverIndex].IsCover = true;
@@ -52,6 +52,7 @@
                 Title = title,
                 Description = description,
                 Year = year,
+                VideoId = videoId,
                 Actors = actorNames.Select(n => new Actor() { Name = n }).ToList(),
                 Directors = directorNames.Select(n => new Director() { Name = n }).ToList(),
                 Images = movieImages,

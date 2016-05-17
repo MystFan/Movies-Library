@@ -22,6 +22,6 @@
 
         IQueryable<int> GetMovieYears();
 
-        void Add(string title, string description, int year, int genreType, int coverIndex, IEnumerable<string> actorNames, IEnumerable<string> directorNames, IEnumerable<HttpPostedFileBase> images);
+        void Add(string title, string description, int year, string videoId, int genreType, int coverIndex, IEnumerable<string> actorNames, IEnumerable<string> directorNames, IEnumerable<HttpPostedFileBase> images);
     }
 }
