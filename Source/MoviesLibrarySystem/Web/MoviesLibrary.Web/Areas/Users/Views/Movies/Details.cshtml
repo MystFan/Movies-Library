@@ -28,7 +28,7 @@
                         </embed>
                     </object>
                 </div>
-                <p>@Model.VideoTitle</p>
+                <p>@Html.Action("GetMovieInfo", new { id = Model.VideoId })</p>
             }
         </div>
     </div>

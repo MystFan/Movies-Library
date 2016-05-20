@@ -11,6 +11,7 @@
     using Google.Apis.YouTube.v3;
     using MoviesLibrary.Services.Web.Contracts;
     using MoviesLibrary.Services.Web.Helpers;
+    using System.Threading.Tasks;
 
     public class YouTubeApiService : IVideoApiService
     {
@@ -56,13 +57,13 @@
             return video;
         }
 
-        public string GetVideoTitle(string videoId)
+        public async Task<string> GetVideoTitle(string videoId)
         {
-            var video = this.GetVideoInfo(videoId);
+            var video = await this.GetVideoInfo(videoId);
             return video.Title;
         }
 
-        private MovieVideo GetVideoInfo(string videoId)
+        private async Task<MovieVideo> GetVideoInfo(string videoId)
         {
             var requestVideo = YouTubeService.Videos.List("snippet");
             requestVideo.Id = videoId;

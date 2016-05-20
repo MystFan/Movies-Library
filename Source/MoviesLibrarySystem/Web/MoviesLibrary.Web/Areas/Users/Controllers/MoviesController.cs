@@ -12,6 +12,7 @@
     using MoviesLibrary.Services.Web.Contracts;
     using MoviesLibrary.Web.ViewModels.Movie;
     using MoviesLibrary.Web.Infrastructure.CustomFilters;
+    using System.Threading.Tasks;
 
     [AllowAnonymous]
     public class MoviesController : UsersBaseController
@@ -95,6 +96,14 @@
                 .Description;
 
             return this.Content(description);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetMovieInfo(string id)
+        {
+            string title = await youtubeService.GetVideoTitle(id);
+
+            return this.PartialView("GetMovieInfo", title);
         }
     }
 }
