@@ -32,6 +32,8 @@
 
         public string VideoId { get; set; }
 
+        public string VideoTitle { get; set; }
+
         public int Rating { get; set; }
 
         public int RatingsCount { get; set; }

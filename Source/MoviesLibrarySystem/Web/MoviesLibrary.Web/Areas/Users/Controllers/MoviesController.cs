@@ -55,15 +55,9 @@
         {
             var movie = this.moviesService.GetByViewId(id);
             var movieViewModel = Mapper.Map<MovieViewModel>(movie);
+            movieViewModel.VideoTitle = youtubeService.GetVideoTitle(movie.VideoId);
 
-            var viewModel = new MovieDetailsViewModel()
-            {
-                Movie = movieViewModel,
-                MovieAdditionalInfo = this.movieInfoService.GetMovie(movie.Title, movie.Year),
-                VideoTitle = youtubeService.GetVideoTitle(movie.VideoId)
-            };
-
-            return this.View(viewModel);
+            return this.View(movieViewModel);
         }
 
         [HttpGet]
