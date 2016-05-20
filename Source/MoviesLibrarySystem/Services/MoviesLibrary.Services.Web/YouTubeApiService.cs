@@ -9,9 +9,10 @@
     using Google.Apis.Services;
     using Google.Apis.Util.Store;
     using Google.Apis.YouTube.v3;
+    using MoviesLibrary.Services.Web.Contracts;
     using MoviesLibrary.Services.Web.Helpers;
 
-    public class YouTubeApiService
+    public class YouTubeApiService : IVideoApiService
     {
         public static YouTubeService YouTubeService = Auth();
 
@@ -36,12 +37,37 @@
             return service;
         }
 
-        public YouTubeVideo GetVideoById(string videoId)
+        public MovieVideo GetVideoById(string videoId)
         {
             var requestVideo = YouTubeService.Videos.List("snippet");// type of request - snippet
             requestVideo.Id = videoId;
 
-            var video = new YouTubeVideo();
+            var video = new MovieVideo();
+            video.Id = videoId;
+
+            var response = requestVideo.Execute();
+            if (response.Items.Count > 0)
+            {
+                video.Title = response.Items.FirstOrDefault().Snippet.Title;
+                video.Description = response.Items.FirstOrDefault().Snippet.Description;
+                video.PublishedDate = response.Items.FirstOrDefault().Snippet.PublishedAt.Value;
+            }
+
+            return video;
+        }
+
+        public string GetVideoTitle(string videoId)
+        {
+            var video = this.GetVideoInfo(videoId);
+            return video.Title;
+        }
+
+        private MovieVideo GetVideoInfo(string videoId)
+        {
+            var requestVideo = YouTubeService.Videos.List("snippet");
+            requestVideo.Id = videoId;
+
+            var video = new MovieVideo();
             video.Id = videoId;
 
             var response = requestVideo.Execute();

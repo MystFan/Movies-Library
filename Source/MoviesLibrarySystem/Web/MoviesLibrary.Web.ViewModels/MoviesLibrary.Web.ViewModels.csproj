@@ -93,6 +93,7 @@
     <Compile Include="Article\ArticleViewModel.cs" />
     <Compile Include="Image\ArticleImageViewModel.cs" />
     <Compile Include="Image\MovieImageViewModel.cs" />
+    <Compile Include="Movie\MovieDetailsViewModel.cs" />
     <Compile Include="Movie\MovieInputModel.cs" />
     <Compile Include="Movie\MovieListViewModel.cs" />
     <Compile Include="Movie\MovieSearchResultViewModel.cs" />
@@ -115,6 +116,10 @@
     <ProjectReference Include="..\..\Data\MoviesLibrary.Models\MoviesLibrary.Models.csproj">
       <Project>{f29dd2f6-6e0d-45fb-97a4-3934db4daf1d}</Project>
       <Name>MoviesLibrary.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\MoviesLibrary.Services.Web\MoviesLibrary.Services.Web.csproj">
+      <Project>{d2e4ba28-d405-4e43-a0a0-8ad53d2528c0}</Project>
+      <Name>MoviesLibrary.Services.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\MoviesLibrary.Web.Infrastructure\MoviesLibrary.Web.Infrastructure.csproj">
       <Project>{0028b900-190e-4139-aa6e-8804da30f6ce}</Project>

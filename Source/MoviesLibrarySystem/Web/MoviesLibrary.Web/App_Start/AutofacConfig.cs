@@ -57,6 +57,14 @@
                 .As<IImageEditorService>()
                 .InstancePerRequest();
 
+            builder.Register(x => new YouTubeApiService())
+                .As<IVideoApiService>()
+                .InstancePerRequest();
+
+            builder.Register(x => new OMDbApiService())
+                .As<IMovieAdditionalInfoApiService>()
+                .InstancePerRequest();
+
             var servicesAssembly = Assembly.GetAssembly(typeof(IService));
             builder.RegisterAssemblyTypes(servicesAssembly).AsImplementedInterfaces();
 

@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class YouTubeVideo
+    public class MovieVideo
     {
         public string Id { get; set; }
 

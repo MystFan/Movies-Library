@@ -83,11 +83,15 @@
   <ItemGroup>
     <Compile Include="Contracts\ICacheService.cs" />
     <Compile Include="Contracts\IImageEditorService.cs" />
+    <Compile Include="Contracts\IMovieAdditionalInfoApiService.cs" />
+    <Compile Include="Contracts\IVideoApiService.cs" />
+    <Compile Include="Helpers\MovieInfo.cs" />
     <Compile Include="HttpCacheService.cs" />
     <Compile Include="ImageEditorService.cs" />
+    <Compile Include="OMDbApiService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="YouTubeApiService.cs" />
-    <Compile Include="Helpers\YouTubeVideo.cs" />
+    <Compile Include="Helpers\MovieVideo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\MoviesLibrary.Common\MoviesLibrary.Common.csproj">

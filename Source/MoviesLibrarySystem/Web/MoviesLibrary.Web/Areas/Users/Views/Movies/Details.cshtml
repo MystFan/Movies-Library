@@ -1,4 +1,4 @@
-﻿@model MoviesLibrary.Web.ViewModels.Movie.MovieViewModel
+﻿@model MoviesLibrary.Web.ViewModels.Movie.MovieDetailsViewModel
 @{
     ViewBag.Title = "Details";
     Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
@@ -6,28 +6,29 @@
 
 <header class="text-center text-danger">
     <p>
-        <h1>@Model.Title</h1>
+        <h1>@Model.Movie.Title</h1>
     </p>
     <div class="row">
         <div class="col-lg-offset-1 col-md-offset-1 col-lg-6 col-md-6">
-            <img src="@Url.Action("GetImage", "Home", new { area = string.Empty, id = Model.Images.FirstOrDefault(i => i.IsCover).ViewId })" class="img-responsive" />
+            <img src="@Url.Action("GetImage", "Home", new { area = string.Empty, id = Model.Movie.Images.FirstOrDefault(i => i.IsCover).ViewId })" class="img-responsive" />
         </div>
         <div class="col-lg-5 col-md-5">
-            @if (Model.VideoId != null)
+            @if (Model.Movie.VideoId != null)
             {
                 <div class="videoWrapper">
                     <object>
-                        <param name="movie" value="http://www.youtube.com/v/@Model.VideoId" />
+                        <param name="movie" value="http://www.youtube.com/v/@Model.Movie.VideoId" />
                         <param name="allowFullScreen" value="true" />
                         <param name="allowscriptaccess" value="always" />
                         <param name="wmode" value="opaque" />
-                        <embed src="http://www.youtube.com/v/@Model.VideoId"
+                        <embed src="http://www.youtube.com/v/@Model.Movie.VideoId"
                                type="application/x-shockwave-flash"
                                allowscriptaccess="always" allowfullscreen="true"
                                wmode="opaque">
                         </embed>
                     </object>
                 </div>
+                <p>@Model.VideoTitle</p>
             }
         </div>
     </div>
@@ -38,35 +39,35 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 padbot30">
                 <p>
-                    @Model.Description
+                    @Model.Movie.Description
                 </p>
                 <p>
-                    Year: @Model.Year
+                    <strong class="text-info">Year:</strong> @Model.Movie.Year
                 </p>
                 <p>
-                    Genre: @Model.Genre
+                    <strong class="text-info">Genre:</strong> @Model.Movie.Genre
                 </p>
-                @if (Model.Directors.Count() == 1)
+                @if (Model.Movie.Directors.Count() == 1)
                 {
                     <p>
-                        Director: @Model.Directors.FirstOrDefault()
+                        <strong class="text-info">Director:</strong> @Model.Movie.Directors.FirstOrDefault()
                     </p>
                 }
                 else
                 {
                     <p>
-                        Directors: @string.Join(", ", Model.Directors)
+                        <strong class="text-info">Directors:</strong> @string.Join(", ", Model.Movie.Directors)
                     </p>
                 }
                 <p id="vote-value">
                     Rating:
-                    @if (Model.RatingsCount == 0)
+                    @if (Model.Movie.RatingsCount == 0)
                     {
                         <span>no rating</span>
                     }
                     else
                     {
-                        var starsCount = (Model.Rating / Model.RatingsCount);
+                        var starsCount = (Model.Movie.Rating / Model.Movie.RatingsCount);
                         for (int i = 0; i < starsCount; i++)
                         {
                             <span class="glyphicon glyphicon-star" data-rating="@(i + 1)"></span>
@@ -76,7 +77,19 @@
             </div>
             <div class="col-lg-6 col-md-6 padbot30">
                 <div class="row">
-                    @foreach (var image in Model.Images)
+                    <aside class="col-lg-offset-1 col-md-offset-1 col-lg-8 col-md-8">
+                        <h4 class="text-center text-danger">Additional info</h4>
+                        <p><strong class="text-info">Released:</strong> @Model.MovieAdditionalInfo.Released</p>
+                        <p><strong class="text-info">Duration:</strong> @Model.MovieAdditionalInfo.Runtime</p>
+                        <p><strong class="text-info">Writer:</strong> @Model.MovieAdditionalInfo.Writer</p>
+                        <p><strong class="text-info">Country:</strong> @Model.MovieAdditionalInfo.Country</p>
+                        <p><strong class="text-info">Awards:</strong> @Model.MovieAdditionalInfo.Awards</p>
+                        <p><strong class="text-info">Imdb Rating:</strong> @Model.MovieAdditionalInfo.ImdbRating</p>
+                        <p><strong class="text-info">Imdb Votes:</strong> @Model.MovieAdditionalInfo.ImdbVotes</p>
+                    </aside>
+                </div>
+                <div class="row">
+                    @foreach (var image in Model.Movie.Images)
                     {
                         if (!image.IsCover)
                         {
@@ -100,16 +113,16 @@
 
                             <div class="row vote-icon" data-action="up"><span class="glyphicon glyphicon-arrow-up"></span></div>
 
-                            <div class="row" id="movie-vote-value" data-id="@Model.Id">0</div>
+                            <div class="row" id="movie-vote-value" data-id="@Model.Movie.Id">0</div>
                             <div class="row vote-icon" data-action="down"><span class="glyphicon glyphicon-arrow-down"></span></div>
                             <button id="btn-movie-vote" class="btn btn-success">Vote</button>
                         </div>
                     }
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 pull-right">
                     <div class="row">
                         <h3 class="text-info">Actors</h3>
-                        @foreach (var actorName in Model.Actors)
+                        @foreach (var actorName in Model.Movie.Actors)
                         {
                             <div class="col-lg-6 col-md-6 col-xs-6">
                                 <p>
