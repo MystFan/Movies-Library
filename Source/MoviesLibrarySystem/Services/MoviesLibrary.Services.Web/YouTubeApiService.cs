@@ -57,13 +57,13 @@
             return video;
         }
 
-        public async Task<string> GetVideoTitle(string videoId)
+        public string GetVideoTitle(string videoId)
         {
-            var video = await this.GetVideoInfo(videoId);
+            var video = this.GetVideoInfo(videoId);
             return video.Title;
         }
 
-        private async Task<MovieVideo> GetVideoInfo(string videoId)
+        private MovieVideo GetVideoInfo(string videoId)
         {
             var requestVideo = YouTubeService.Videos.List("snippet");
             requestVideo.Id = videoId;

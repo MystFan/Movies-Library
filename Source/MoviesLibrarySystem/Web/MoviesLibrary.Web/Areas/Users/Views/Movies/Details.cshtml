@@ -28,7 +28,7 @@
                         </embed>
                     </object>
                 </div>
-                <p>@Html.Action("GetMovieInfo", new { id = Model.VideoId })</p>
+                <p id="movie-video-title"></p>
             }
         </div>
     </div>
@@ -131,5 +131,11 @@
 </section>
 
 @section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#movie-video-title").load('@(Url.Action("GetMovieInfo", "Movies", new { id = Model.VideoId}))')
+            
+        });
+    </script>
     <script type="text/javascript" src="~/Scripts/movie-vote.js"></script>
 }

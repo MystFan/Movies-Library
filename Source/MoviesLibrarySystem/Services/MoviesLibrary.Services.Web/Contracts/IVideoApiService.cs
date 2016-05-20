@@ -7,6 +7,6 @@
     {
         MovieVideo GetVideoById(string videoId);
 
-        Task<string> GetVideoTitle(string videoId);
+        string GetVideoTitle(string videoId);
     }
 }
