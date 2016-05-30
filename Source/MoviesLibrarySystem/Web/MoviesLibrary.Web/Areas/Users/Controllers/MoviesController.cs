@@ -18,14 +18,12 @@
     {
         private IMoviesService moviesService;
         private IGenresService genresService;
-        private IVideoApiService youtubeService;
         private IMovieAdditionalInfoApiService movieInfoService;
 
-        public MoviesController(IMoviesService moviesService, IGenresService genresService, IVideoApiService youtubeService, IMovieAdditionalInfoApiService movieInfoService)
+        public MoviesController(IMoviesService moviesService, IGenresService genresService, IMovieAdditionalInfoApiService movieInfoService)
         {
             this.moviesService = moviesService;
             this.genresService = genresService;
-            this.youtubeService = youtubeService;
             this.movieInfoService = movieInfoService;
         }
 
@@ -55,9 +53,14 @@
         {
             var movie = this.moviesService.GetByViewId(id);
             var movieViewModel = Mapper.Map<MovieViewModel>(movie);
-            //movieViewModel.VideoTitle = youtubeService.GetVideoTitle(movie.VideoId);
+            var movieInfo = this.movieInfoService.GetMovie(movieViewModel.Title, movieViewModel.Year);
+            var viewModel = new MovieDetailsViewModel()
+            {
+                Movie = movieViewModel,
+                MovieInfo = movieInfo
+            };
 
-            return this.View(movieViewModel);
+            return this.View(viewModel);
         }
 
         [HttpGet]
@@ -95,15 +98,6 @@
                 .Description;
 
             return this.Content(description);
-        }
-
-        [HttpGet]
-        [AjaxOnly]
-        public ActionResult GetMovieInfo(string id)
-        {
-            string title = youtubeService.GetVideoTitle(id);
-
-            return this.Content(title);
         }
     }
 }

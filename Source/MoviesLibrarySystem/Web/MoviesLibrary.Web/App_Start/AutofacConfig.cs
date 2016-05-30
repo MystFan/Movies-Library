@@ -57,10 +57,6 @@
                 .As<IImageEditorService>()
                 .InstancePerRequest();
 
-            builder.Register(x => new YouTubeApiService())
-                .As<IVideoApiService>()
-                .InstancePerRequest();
-
             builder.Register(x => new OMDbApiService())
                 .As<IMovieAdditionalInfoApiService>()
                 .InstancePerRequest();

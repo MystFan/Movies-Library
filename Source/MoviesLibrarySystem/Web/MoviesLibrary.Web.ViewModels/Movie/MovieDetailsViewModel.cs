@@ -4,10 +4,8 @@
 
     public class MovieDetailsViewModel
     {
-        public string VideoTitle { get; set; }
-
         public MovieViewModel Movie { get; set; }
 
-        public MovieInfo MovieAdditionalInfo { get; set; }
+        public MovieInfo MovieInfo { get; set; }
     }
 }

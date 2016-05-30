@@ -3,16 +3,20 @@
     public enum Genre
     {
         Action,
-        Drama,
-        War,
         Adventure,
+        Animation,
+        Biography,
         Comedy,
         Crime,
+        Documentary,
+        Drama,
         Faction,
         Fantasy,
+        Family,
         Historical,
         Horror,
         Mystery,
+        Musical,
         Paranoid,
         Philosophical,
         Political,
@@ -20,6 +24,9 @@
         Romance,
         Saga,
         ScienceFiction,
-        Thriller
+        Sport,
+        Thriller,
+        War,
+        Western
     }
 }
