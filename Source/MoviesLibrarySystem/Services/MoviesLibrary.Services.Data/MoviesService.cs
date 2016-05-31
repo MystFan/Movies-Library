@@ -80,8 +80,9 @@
         public IQueryable<int> GetMovieYears()
         {
             var years = this.GetAll()
-                .OrderByDescending(m => m.Year)
-                .Select(m => m.Year);
+                .Select(m => m.Year)
+                .Distinct()
+                .OrderByDescending(y => y);
 
             return years;
         }
