@@ -7,7 +7,7 @@
     using MoviesLibrary.Web.Infrastructure.CustomAttributes;
     using NUnit.Framework;
 
-    [TestFixture]
+    
     public class CollectionCountTersts
     {
         private CollectionCount attribute;

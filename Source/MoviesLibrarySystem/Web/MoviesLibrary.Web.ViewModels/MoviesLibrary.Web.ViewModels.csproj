@@ -91,6 +91,7 @@
     <Compile Include="Article\ArticleInputModel.cs" />
     <Compile Include="Article\ArticleListViewModel.cs" />
     <Compile Include="Article\ArticleViewModel.cs" />
+    <Compile Include="Genres\GenresListViewModel.cs" />
     <Compile Include="Image\ArticleImageViewModel.cs" />
     <Compile Include="Image\MovieImageViewModel.cs" />
     <Compile Include="Movie\MovieDetailsViewModel.cs" />

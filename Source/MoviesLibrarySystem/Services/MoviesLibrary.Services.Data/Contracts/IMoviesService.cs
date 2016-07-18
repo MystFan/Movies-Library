@@ -12,6 +12,8 @@
 
         IQueryable<Movie> Get(int page, string title, int? genreType);
 
+        IQueryable<Movie> FilterMoviesCount(string title, int? genreType);
+
         IQueryable<Movie> GetLastAdded(int count);
 
         IQueryable<Movie> GetByYear(int year);

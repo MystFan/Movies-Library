@@ -12,6 +12,7 @@
     using MoviesLibrary.Services.Web.Contracts;
     using MoviesLibrary.Web.ViewModels.Movie;
     using MoviesLibrary.Web.Infrastructure.CustomFilters;
+    using MoviesLibrary.Web.ViewModels.Genres;
 
     [AllowAnonymous]
     public class MoviesController : UsersBaseController
@@ -35,14 +36,16 @@
                 .ProjectTo<MovieViewModel>()
                 .ToList();
 
-            int totalMovies = this.moviesService.GetAll().Count();
+            int totalMovies = this.moviesService.FilterMoviesCount(title, genreType).Count();
             int totalPages = (int)Math.Ceiling(totalMovies / (decimal)MovieConstants.MoviesListDefaultPageSize);
 
             MovieListViewModel viewModel = new MovieListViewModel()
             {
                 CurrentPage = page,
                 TotalPages = totalPages,
-                Movies = moviesResult
+                Movies = moviesResult,
+                Title = title,
+                Type = genreType == null ? -1 : (int)genreType,
             };
 
             return this.View(viewModel);
@@ -83,10 +86,16 @@
         }
 
         [ChildActionOnly]
-        public ActionResult Genres()
+        public ActionResult Genres(int? selected)
         {
             var genres = this.genresService.GetAll();
-            return this.PartialView("_GenresDropdownPartial", genres);
+            var viewModel = new GenresListViewModel()
+            {
+                Genres = genres,
+                Selected = selected.Value
+            };
+
+            return this.PartialView("_GenresDropdownPartial", viewModel);
         } 
 
         [HttpGet]

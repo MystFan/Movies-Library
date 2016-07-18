@@ -89,10 +89,27 @@
 
         public IQueryable<Movie> Get(int page, string title, int? genreType)
         {
+            IQueryable<Movie> moviesResult = this.GetMovies(title, genreType);
+
+            moviesResult = moviesResult
+                    .Skip((page - 1) * MovieConstants.MoviesListDefaultPageSize)
+                    .Take(MovieConstants.MoviesListDefaultPageSize);
+
+            return moviesResult;
+        }
+
+        public IQueryable<Movie> FilterMoviesCount(string title, int? genreType)
+        {
+            IQueryable<Movie> moviesResult = this.GetMovies(title, genreType);
+            return moviesResult;
+        }
+
+        private IQueryable<Movie> GetMovies(string title, int? genreType)
+        {
             title = title != null ? title : string.Empty;
 
             IQueryable<Movie> moviesResult = null;
-            if (genreType.HasValue && genreType.Value >= 0 && title != string.Empty)
+            if (genreType.HasValue && title != string.Empty)
             {
                 moviesResult = this.movies
                     .All()
@@ -104,7 +121,7 @@
                     .All()
                     .Where(m => m.Title.ToLower().Contains(title.ToLower()));
             }
-            else if (genreType.HasValue && genreType.Value >= 0 && title == string.Empty)
+            else if (genreType.HasValue && title == string.Empty)
             {
                 moviesResult = this.movies
                     .All()
@@ -116,9 +133,7 @@
             }
 
             moviesResult = moviesResult
-                    .OrderByDescending(m => m.CreatedOn)
-                    .Skip((page - 1) * MovieConstants.MoviesListDefaultPageSize)
-                    .Take(MovieConstants.MoviesListDefaultPageSize);
+                    .OrderByDescending(m => m.CreatedOn);
 
             return moviesResult;
         }

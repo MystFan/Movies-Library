@@ -9,5 +9,9 @@
         public int TotalPages { get; set; }
 
         public IEnumerable<MovieViewModel> Movies { get; set; }
+
+        public string Title { get; set; }
+
+        public int? Type { get; set; }
     }
 }

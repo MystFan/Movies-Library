@@ -1,4 +1,4 @@
-﻿@model IList<string>
+﻿@model MoviesLibrary.Web.ViewModels.Genres.GenresListViewModel
 
 @{
     var genres = new List<SelectListItem>();
@@ -9,13 +9,20 @@
         Value = null
     });
 
-    for (int i = 0; i < Model.Count(); i++)
+    for (int i = 0; i < Model.Genres.Count(); i++)
     {
-        genres.Add(new SelectListItem()
+        var item = new SelectListItem()
         {
-            Text = Model[i],
+            Text = Model.Genres[i],
             Value = i.ToString()
-        });
+        };
+
+        if (Model.Selected != null && Model.Selected == i)
+        {
+            item.Selected = true;
+        }
+
+        genres.Add(item);
     }
 }
 
